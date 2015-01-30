@@ -1,0 +1,7 @@
+.list-unstyled {
+  padding-left: 24px;
+}
+
+.remove-padding {
+	padding-left: 0 !important;
+}

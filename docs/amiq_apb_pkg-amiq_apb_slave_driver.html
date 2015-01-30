@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>amiq_apb
+API Specification</title>
+
+	<meta name="author" content="cristian.slav">
+	<meta name="description" content="amiq_apb API Specification">
+	<meta name="generator" content="Specador. Copyright (C) 2005-2014 AMIQ EDA ">
+	<meta name="keywords" content="SystemVerilog, HTML Documentation, Specador, AMIQ EDA, amiq_apb API Specification">
+
+	<link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="css/content.css" rel="stylesheet">
+	<link href="css/custom.css" rel="stylesheet">
+</head>
+<body>
+
+	<div class="container-fluid">
+<!-- ========= Title ======= -->
+<h2>class      		<a href="summary-amiq_apb_pkg.html">amiq_apb_pkg</a>
+:: amiq_apb_slave_driver
+</h2>
+
+
+<!-- ========= Top Buttons ======= -->
+		<br>
+		<div class="btn-group">
+				
+	<button data-scroll=#constructor type="button" class="btn btn-default">Constructor <span class="badge">1</span></button>
+	<button data-scroll=#typedefs type="button" class="btn btn-default">Typedefs <span class="badge">1</span></button>
+	
+	
+	<button data-scroll=#variables type="button" class="btn btn-default">Variables <span class="badge">2</span></button>
+	
+	<button data-scroll=#functions type="button" class="btn btn-default">Functions <span class="badge">6</span></button>
+	<button data-scroll=#tasks type="button" class="btn btn-default">Tasks <span class="badge">1</span></button>
+    
+	<button data-scroll=#inheritance_diagram type="button" class="btn btn-default">Inheritance Diagram</button>
+	<button data-scroll=#collaboration_diagram type="button" class="btn btn-default">Collaboration Diagram</button>
+	<button data-scroll=#direct_associations_diagram type="button" class="btn btn-default">Direct Associations Diagram</button>
+
+		</div>
+		<br><br>
+
+<!-- ========= Inheritance Tree ======= -->
+	<div class="panel panel-default">
+		<div class="panel-heading" data-toggle="collapse" data-target="#inheritance_tree">
+			<h4 class="panel-title">
+				Class Hierarchy <span class="glyphicon glyphicon-chevron-down"></span>
+			</h4>
+		</div>
+				<div id="inheritance_tree" class="panel-collapse collapse in">
+			<div class="panel-body">
+				<ul class="class-hierarchy">
+							<li> 		<a href="amiq_apb_pkg-amiq_apb_driver.html">amiq_apb_driver</a>
+ <b>
+    #(
+      
+  type DRIVER_ITEM
+      = <a href="amiq_apb_pkg-amiq_apb_base_item.html">amiq_apb_base_item</a>
+    )
+</b> 		extends <b>uvm_driver#(DRIVER_ITEM)</b>
+</li>
+							<li>
+							   amiq_apb_slave_driver <b>
+</b> 		extends <b>amiq_apb_driver#(amiq_apb_slave_drv_item)</b>
+
+							</li>
+				</ul>
+			</div>
+		</div>
+
+	</div>
+
+<!-- ========= Description ======= -->
+	<pre class="comment">AMBA APB slave driver</pre>
+
+<!-- ========= Parameters ======= -->
+
+<!-- ========= Constructor ======= -->
+	<div class="panel panel-default">
+		<div class="panel-heading" data-toggle="collapse" data-target="#constructor">
+			<h4 class="panel-title">
+				Constructor <span class="glyphicon glyphicon-chevron-down"></span>
+			</h4>
+		</div>
+					<ul id="constructor" class="list-group panel-collapse collapse in">
+					<li class="list-group-item">
+						<a name="constructor_new"></a>
+						<span class="signature">
+
+	 function 	
+
+	<b>		new
+</b>(	string
+name = "amiq_apb_slave_driver",
+	uvm_component
+parent)
+
+
+						</span>
+	<pre class="comment">Constructor<br><br><b>Arguments:</b><br>&nbsp;&nbsp;&nbsp;&nbsp;<b>name</b> - name of the component instance<br>&nbsp;&nbsp;&nbsp;&nbsp;<b>parent</b> - parent of the component instance<br></pre>
+
+					</li>
+			</ul>
+
+	</div>
+
+<!-- ========= Typedefs ======= -->
+	<div class="panel panel-default">
+		<div class="panel-heading" data-toggle="collapse" data-target="#typedefs">
+			<h4 class="panel-title">
+				Typedefs <span class="glyphicon glyphicon-chevron-down"></span>
+			</h4>
+		</div>
+					<ul id="typedefs" class="list-group panel-collapse collapse in">
+					<li class="list-group-item">
+						<a name="typedef_type_id"></a>
+						<span class="signature">
+
+	 <b>		type_id
+</b>
+
+		-> uvm_component_registry#(amiq_apb_slave_driver, "amiq_apb_slave_driver")
+	
+
+
+						</span>
+
+					</li>
+			</ul>
+
+	</div>
+
+<!-- ========= Structs ======= -->
+
+<!-- ========= Enums ======= -->
+
+<!-- ========= Variables ======= -->
+	<div class="panel panel-default">
+		<div class="panel-heading" data-toggle="collapse" data-target="#variables">
+			<h4 class="panel-title">
+				Variables <span class="glyphicon glyphicon-chevron-down"></span>
+			</h4>
+		</div>
+					<ul id="variables" class="list-group panel-collapse collapse in">
+					<li class="list-group-item">
+						<a name="variable_slave_agent_config"></a>
+						<span class="signature">
+
+	<a href="amiq_apb_pkg-amiq_apb_slave_agent_config.html">amiq_apb_slave_agent_config</a>
+ <b>		slave_agent_config
+</b>
+
+
+						</span>
+	<pre class="comment">Pointer to slave agent config class</pre>
+
+					</li>
+					<li class="list-group-item">
+						<a name="variable_type_name"></a>
+						<span class="signature">
+
+const static 	string
+ <b>		type_name
+</b>
+
+
+						</span>
+
+					</li>
+			</ul>
+
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading" data-toggle="collapse" data-target="#inherited_variables">
+			<h4 class="panel-title">
+				Variables inherited from <span class="glyphicon glyphicon-chevron-down"></span>
+			</h4>
+		</div>
+			<ul id="inherited_variables" class="list-group panel-collapse collapse">
+			<li class="list-group-item">
+				<p><b>	<a  href="summary-amiq_apb_pkg.html">amiq_apb_pkg</a> ::  		<a href="amiq_apb_pkg-amiq_apb_driver.html">amiq_apb_driver</a>
+
+</b></p>
+					<a href="amiq_apb_pkg-amiq_apb_driver.html#variable_agent_config">agent_config</a>
+, 	<a href="amiq_apb_pkg-amiq_apb_driver.html#variable_send_item">send_item</a>
+
+			</li>
+	</ul>
+
+	</div>
+
+<!-- ========= Constraints ======= -->
+
+<!-- ========= Functions ======= -->
+	<div class="panel panel-default">
+		<div class="panel-heading" data-toggle="collapse" data-target="#functions">
+			<h4 class="panel-title">
+				Functions <span class="glyphicon glyphicon-chevron-down"></span>
+			</h4>
+		</div>
+					<ul id="functions" class="list-group panel-collapse collapse in">
+					<li class="list-group-item">
+						<a name="function_end_of_elaboration_phase"></a>
+						<span class="signature">
+
+	 function 	void
+
+	<b>		end_of_elaboration_phase
+</b>(	uvm_phase
+phase)
+
+
+						</span>
+	<pre class="comment">UVM end of elaboration phase<br><br><b>Arguments:</b><br>&nbsp;&nbsp;&nbsp;&nbsp;<b>phase</b> - current phase<br></pre>
+
+					</li>
+					<li class="list-group-item">
+						<a name="function_get_object_type"></a>
+						<span class="signature">
+
+	virtual  function 	uvm_object_wrapper
+
+	<b>		get_object_type
+</b>()
+
+
+						</span>
+
+					</li>
+					<li class="list-group-item">
+						<a name="function_get_read_data"></a>
+						<span class="signature">
+
+	virtual  function 	<a href="summary-typedef-amiq_apb_pkg.html#typedef_amiq_apb_data_t">amiq_apb_data_t</a>
+
+	<b>		get_read_data
+</b>(	<a href="amiq_apb_pkg-amiq_apb_slave_drv_item.html">amiq_apb_slave_drv_item</a>
+transaction,
+	<a href="summary-typedef-amiq_apb_pkg.html#typedef_amiq_apb_addr_t">amiq_apb_addr_t</a>
+address,
+	<a href="amiq_apb_pkg-amiq_apb_direction_t.html">amiq_apb_direction_t</a>
+direction)
+
+
+						</span>
+	<pre class="comment">Function to get the custom read data<br><br><b>Returns:</b><br>&nbsp;&nbsp;&nbsp;&nbsp;read data<br><br><b>Arguments:</b><br>&nbsp;&nbsp;&nbsp;&nbsp;<b>transaction</b> - transaction to be driven on the bus<br>&nbsp;&nbsp;&nbsp;&nbsp;<b>address</b> - current address on the bus<br>&nbsp;&nbsp;&nbsp;&nbsp;<b>direction</b> - current direction on the bus<br></pre>
+
+					</li>
+					<li class="list-group-item">
+						<a name="function_get_type"></a>
+						<span class="signature">
+
+	static  function 	<a href="amiq_apb_pkg-amiq_apb_slave_driver.html#typedef_type_id">type_id</a>
+
+	<b>		get_type
+</b>()
+
+
+						</span>
+
+					</li>
+					<li class="list-group-item">
+						<a name="function_get_type_name"></a>
+						<span class="signature">
+
+	virtual  function 	string
+
+	<b>		get_type_name
+</b>()
+
+
+						</span>
+
+					</li>
+					<li class="list-group-item">
+						<a name="function_handle_reset"></a>
+						<span class="signature">
+
+	virtual  function 	void
+
+	<b>		handle_reset
+</b>()
+
+
+						</span>
+	<pre class="comment">Function for handling reset</pre>
+
+					</li>
+			</ul>
+
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading" data-toggle="collapse" data-target="#inherited_functions">
+			<h4 class="panel-title">
+				Functions inherited from <span class="glyphicon glyphicon-chevron-down"></span>
+			</h4>
+		</div>
+			<ul id="inherited_functions" class="list-group panel-collapse collapse">
+			<li class="list-group-item">
+				<p><b>	<a  href="summary-amiq_apb_pkg.html">amiq_apb_pkg</a> ::  		<a href="amiq_apb_pkg-amiq_apb_driver.html">amiq_apb_driver</a>
+
+</b></p>
+					<a href="amiq_apb_pkg-amiq_apb_driver.html#function_get_id">get_id</a>
+
+			</li>
+	</ul>
+
+	</div>
+
+<!-- ========= Tasks ======= -->
+	<div class="panel panel-default">
+		<div class="panel-heading" data-toggle="collapse" data-target="#tasks">
+			<h4 class="panel-title">
+				Tasks <span class="glyphicon glyphicon-chevron-down"></span>
+			</h4>
+		</div>
+					<ul id="tasks" class="list-group panel-collapse collapse in">
+					<li class="list-group-item">
+						<a name="task_drive_transaction"></a>
+						<span class="signature">
+
+	 task 	
+
+	<b>		drive_transaction
+</b>(	<a href="amiq_apb_pkg-amiq_apb_slave_drv_item.html">amiq_apb_slave_drv_item</a>
+transaction)
+
+
+						</span>
+	<pre class="comment">Task for driving one transaction<br><br><b>Arguments:</b><br>&nbsp;&nbsp;&nbsp;&nbsp;<b>transaction</b> - transaction to be driven on the bus<br></pre>
+
+					</li>
+			</ul>
+
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading" data-toggle="collapse" data-target="#inherited_tasks">
+			<h4 class="panel-title">
+				Tasks inherited from <span class="glyphicon glyphicon-chevron-down"></span>
+			</h4>
+		</div>
+			<ul id="inherited_tasks" class="list-group panel-collapse collapse">
+			<li class="list-group-item">
+				<p><b>	<a  href="summary-amiq_apb_pkg.html">amiq_apb_pkg</a> ::  		<a href="amiq_apb_pkg-amiq_apb_driver.html">amiq_apb_driver</a>
+
+</b></p>
+					<a href="amiq_apb_pkg-amiq_apb_driver.html#task_drive_transactions">drive_transactions</a>
+, 	<a href="amiq_apb_pkg-amiq_apb_driver.html#task_run_phase">run_phase</a>
+, 	<a href="amiq_apb_pkg-amiq_apb_driver.html#task_wait_reset_end">wait_reset_end</a>
+
+			</li>
+	</ul>
+
+	</div>
+
+<!-- ========= Diagrams ======= -->
+
+	<div class="panel panel-default">
+		<div class="panel-heading" data-toggle="collapse" data-target="#inheritance_diagram">
+			<h4 class="panel-title">
+				Inheritance Diagram <span class="glyphicon glyphicon-chevron-down"></span>
+			</h4>
+		</div>
+				<ul id="inheritance_diagram" class="list-group panel-collapse collapse">
+			<img src="amiq_apb_pkg-amiq_apb_slave_driver_inheritance.png" border="0" usemap="#_inheritance_diagram" />
+			<map name="_inheritance_diagram">
+<area shape="rect" id="node1" href="amiq_apb_pkg-amiq_apb_slave_driver.html"  alt="" coords="2019,5,2243,35">
+<area shape="rect" id="node2" href="amiq_apb_pkg-amiq_apb_driver.html"  alt="" coords="1413,5,1733,35">
+<area shape="poly" id="edge1"  alt="" coords="2018,23,1747,23,1747,17,2018,17">
+<area shape="rect" id="node3"  alt="" coords="877,5,1120,35">
+<area shape="poly" id="edge2"  alt="" coords="1413,23,1134,23,1134,17,1413,17">
+<area shape="rect" id="node4"  alt="" coords="651,5,797,35">
+<area shape="poly" id="edge3"  alt="" coords="877,23,811,23,811,17,877,17">
+<area shape="rect" id="node5"  alt="" coords="385,5,570,35">
+<area shape="poly" id="edge4"  alt="" coords="650,23,584,23,584,17,650,17">
+<area shape="rect" id="node6"  alt="" coords="185,5,303,35">
+<area shape="poly" id="edge5"  alt="" coords="384,23,317,23,317,17,384,17">
+<area shape="rect" id="node7"  alt="" coords="5,5,104,35">
+<area shape="poly" id="edge6"  alt="" coords="185,23,118,23,118,17,185,17"></map>
+		</ul>
+
+	</div>
+	
+	<div class="panel panel-default">
+		<div class="panel-heading" data-toggle="collapse" data-target="#collaboration_diagram">
+			<h4 class="panel-title">
+				Collaboration Diagram <span class="glyphicon glyphicon-chevron-down"></span>
+			</h4>
+		</div>
+				<ul id="collaboration_diagram" class="list-group panel-collapse collapse">
+			<img src="amiq_apb_pkg-amiq_apb_slave_driver_collaboration.png" border="0" usemap="#_collaboration_diagram" />
+			<map name="_collaboration_diagram">
+<area shape="rect" id="node1" href="amiq_apb_pkg-amiq_apb_slave_driver.html"  alt="" coords="767,1126,991,1157">
+<area shape="rect" id="node2" href="amiq_apb_pkg-amiq_apb_driver.html"  alt="" coords="546,1033,866,1063">
+<area shape="poly" id="edge1"  alt="" coords="789,1129,762,1119,736,1103,724,1091,714,1077,719,1074,728,1088,739,1099,764,1114,791,1124">
+<area shape="rect" id="node8" href="amiq_apb_pkg-amiq_apb_slave_agent_config.html"  alt="" coords="897,1033,1178,1063">
+<area shape="poly" id="edge21"  alt="" coords="923,1124,979,1099,1014,1071,1017,1075,982,1104,926,1129">
+<area shape="rect" id="node3"  alt="" coords="316,939,559,970">
+<area shape="poly" id="edge2"  alt="" coords="545,1043,479,1031,454,1022,437,1010,430,997,429,983,434,983,436,996,441,1006,457,1017,481,1026,546,1038">
+<area shape="rect" id="node9"  alt="" coords="427,846,670,877">
+<area shape="poly" id="edge22"  alt="" coords="704,1033,704,1006,701,971,691,935,672,903,646,884,649,880,676,900,696,933,706,970,710,1006,709,1033">
+<area shape="rect" id="node12" href="amiq_apb_pkg-amiq_apb_agent_config.html"  alt="" coords="943,939,1167,970">
+<area shape="poly" id="edge25"  alt="" coords="756,1031,990,970,991,975,758,1036">
+<area shape="rect" id="node4"  alt="" coords="940,846,1087,877">
+<area shape="poly" id="edge3"  alt="" coords="522,937,926,874,927,879,523,943">
+<area shape="rect" id="node30"  alt="" coords="44,846,402,877">
+<area shape="poly" id="edge57"  alt="" coords="344,942,309,932,275,917,256,904,240,889,244,885,260,900,278,912,310,927,345,937">
+<area shape="poly" id="edge58"  alt="" coords="316,953,125,942,48,932,21,925,6,916,3,908,6,900,26,886,57,876,58,881,29,891,10,903,8,908,10,913,23,920,49,927,125,937,316,948">
+<area shape="poly" id="edge59"  alt="" coords="464,938,503,913,529,885,532,889,506,917,467,942">
+<area shape="rect" id="node5"  alt="" coords="965,379,1150,410">
+<area shape="poly" id="edge4"  alt="" coords="939,853,887,841,866,833,852,823,832,799,819,776,811,753,807,730,810,681,818,621,821,571,826,550,839,526,875,487,918,455,963,430,1004,412,1006,417,965,435,921,460,879,491,844,530,831,552,826,572,823,622,815,681,813,730,816,752,823,774,836,796,855,819,868,828,889,836,941,848">
+<area shape="rect" id="node13"  alt="" coords="673,99,810,130">
+<area shape="poly" id="edge26"  alt="" coords="940,857,858,848,773,831,736,820,706,806,685,790,678,770,678,206,681,187,689,168,713,137,717,141,694,171,686,188,683,207,683,769,690,786,708,802,738,815,774,826,858,843,940,852">
+<area shape="rect" id="node21"  alt="" coords="960,753,1068,783">
+<area shape="poly" id="edge42"  alt="" coords="1086,846,1130,835,1146,827,1156,820,1161,810,1160,802,1155,795,1145,789,1116,780,1081,775,1082,770,1117,775,1148,785,1158,791,1165,800,1166,811,1160,823,1148,832,1131,840,1088,851">
+<area shape="poly" id="edge43"  alt="" coords="940,860,904,854,874,845,863,838,856,829,856,818,862,806,875,796,895,788,945,776,946,781,897,793,878,801,866,810,861,820,861,827,866,834,876,840,905,849,940,854">
+<area shape="poly" id="edge55"  alt="" coords="1009,847,1007,821,1008,796,1013,796,1012,821,1015,846">
+<area shape="poly" id="edge56"  alt="" coords="1087,867,1103,864,1108,862,1099,857,1102,853,1114,861,1105,869,1087,872">
+<area shape="rect" id="node6"  alt="" coords="885,286,1004,317">
+<area shape="poly" id="edge5"  alt="" coords="1039,382,970,327,973,322,1043,378">
+<area shape="rect" id="node23"  alt="" coords="1791,286,1986,317">
+<area shape="poly" id="edge47"  alt="" coords="1150,381,1777,312,1778,317,1151,386">
+<area shape="rect" id="node7"  alt="" coords="798,193,896,223">
+<area shape="poly" id="edge6"  alt="" coords="883,293,858,282,838,263,833,249,834,236,839,236,839,249,843,260,861,277,886,289">
+<area shape="rect" id="node15"  alt="" coords="921,193,1136,223">
+<area shape="poly" id="edge28"  alt="" coords="1004,295,1177,283,1253,273,1279,266,1292,260,1295,253,1290,247,1259,234,1208,225,1149,219,1149,213,1209,220,1261,229,1294,243,1300,252,1296,263,1281,271,1254,278,1177,288,1004,300">
+<area shape="poly" id="edge7"  alt="" coords="1038,1033,1047,982,1052,983,1043,1034">
+<area shape="rect" id="node31"  alt="" coords="128,753,342,783">
+<area shape="poly" id="edge8"  alt="" coords="517,849,414,811,323,788,324,783,416,805,519,844">
+<area shape="rect" id="node10"  alt="" coords="65,659,346,690">
+<area shape="rect" id="node32"  alt="" coords="84,566,327,597">
+<area shape="poly" id="edge9"  alt="" coords="203,660,203,610,208,610,208,660">
+<area shape="rect" id="node11"  alt="" coords="370,659,604,690">
+<area shape="poly" id="edge10"  alt="" coords="1046,941,1023,889,1028,887,1051,939">
+<area shape="poly" id="edge11"  alt="" coords="742,129,740,174,745,199,756,222,779,247,808,266,840,279,872,288,871,293,838,284,806,270,776,251,751,226,740,201,735,174,737,129">
+<area shape="rect" id="node14"  alt="" coords="928,6,1094,37">
+<area shape="poly" id="edge27"  alt="" coords="759,98,791,78,829,59,871,45,914,35,915,40,872,50,831,64,793,82,762,102">
+<area shape="poly" id="edge29"  alt="" coords="942,225,905,236,882,250,879,257,881,264,897,278,894,282,877,267,874,257,878,246,903,231,941,220">
+<area shape="poly" id="edge30"  alt="" coords="1024,193,1011,50,1016,49,1030,193">
+<area shape="poly" id="edge31"  alt="" coords="1015,225,989,250,965,278,961,274,985,246,1011,221">
+<area shape="rect" id="node16"  alt="" coords="1104,99,1241,130">
+<area shape="poly" id="edge32"  alt="" coords="1048,191,1138,134,1141,139,1051,196">
+<area shape="rect" id="node18"  alt="" coords="1265,99,1384,130">
+<area shape="poly" id="edge35"  alt="" coords="1105,191,1205,165,1284,133,1286,138,1206,171,1106,196">
+<area shape="poly" id="edge37"  alt="" coords="923,196,855,184,806,170,783,157,762,141,766,136,786,152,808,166,856,179,923,191">
+<area shape="rect" id="node19"  alt="" coords="835,99,963,130">
+<area shape="poly" id="edge38"  alt="" coords="947,196,926,185,908,170,900,158,897,144,902,143,905,155,912,166,929,181,949,191">
+<area shape="poly" id="edge41"  alt="" coords="1072,220,1099,238,1105,250,1101,263,1088,273,1068,281,1018,293,1016,288,1066,276,1085,268,1097,260,1100,250,1095,241,1069,225">
+<area shape="rect" id="node17"  alt="" coords="1184,6,1321,37">
+<area shape="poly" id="edge33"  alt="" coords="1192,98,1221,73,1238,47,1243,50,1225,76,1195,102">
+<area shape="poly" id="edge34"  alt="" coords="1111,102,1082,92,1055,77,1026,49,1030,45,1058,73,1085,87,1113,97">
+<area shape="poly" id="edge36"  alt="" coords="1264,104,1149,77,1123,64,1068,43,1069,38,1125,59,1151,72,1265,98">
+<area shape="rect" id="node20"  alt="" coords="618,6,804,37">
+<area shape="poly" id="edge39"  alt="" coords="834,104,711,77,704,64,703,50,708,50,709,62,714,73,835,98">
+<area shape="poly" id="edge40"  alt="" coords="896,100,898,80,908,60,933,40,936,44,912,63,903,81,901,100">
+<area shape="poly" id="edge12"  alt="" coords="958,758,927,746,898,729,877,707,871,692,868,676,868,393,872,372,882,353,910,323,914,326,886,356,877,374,874,394,874,676,876,691,881,704,902,725,930,741,960,753">
+<area shape="poly" id="edge44"  alt="" coords="1067,774,1083,771,1088,768,1080,764,1083,759,1094,768,1085,776,1068,779">
+<area shape="rect" id="node22"  alt="" coords="984,659,1131,690">
+<area shape="poly" id="edge45"  alt="" coords="1018,752,1043,701,1048,703,1023,754">
+<area shape="poly" id="edge13"  alt="" coords="1055,660,1055,423,1060,423,1060,660">
+<area shape="poly" id="edge46"  alt="" coords="1131,680,1147,678,1152,675,1143,671,1146,666,1158,674,1149,682,1131,685">
+<area shape="rect" id="node28"  alt="" coords="1262,566,1360,597">
+<area shape="poly" id="edge52"  alt="" coords="1094,657,1259,598,1261,603,1096,662">
+<area shape="rect" id="node24"  alt="" coords="1790,193,2005,223">
+<area shape="poly" id="edge48"  alt="" coords="1885,286,1887,248,1889,236,1894,237,1892,248,1891,286">
+<area shape="rect" id="node25"  alt="" coords="2053,193,2305,223">
+<area shape="poly" id="edge49"  alt="" coords="1986,295,2090,284,2134,274,2163,259,2170,249,2175,236,2180,237,2175,251,2166,263,2136,279,2091,289,1986,300">
+<area shape="rect" id="node26"  alt="" coords="2349,193,2582,223">
+<area shape="poly" id="edge50"  alt="" coords="1986,295,2248,283,2365,273,2405,266,2428,259,2442,248,2452,233,2456,237,2446,251,2431,264,2406,271,2365,278,2249,289,1986,300">
+<area shape="rect" id="node27"  alt="" coords="1525,193,1710,223">
+<area shape="poly" id="edge51"  alt="" coords="1791,304,1730,301,1669,294,1618,282,1599,274,1585,263,1581,247,1589,232,1593,235,1586,248,1589,260,1601,269,1620,277,1670,289,1730,296,1791,298">
+<area shape="rect" id="node33"  alt="" coords="1901,99,2105,130">
+<area shape="poly" id="edge14"  alt="" coords="1911,191,1975,136,1979,140,1915,195">
+<area shape="poly" id="edge15"  alt="" coords="2152,196,2040,138,2042,133,2154,191">
+<area shape="poly" id="edge16"  alt="" coords="2404,196,2217,157,2093,134,2094,129,2218,152,2405,191">
+<area shape="poly" id="edge17"  alt="" coords="1669,191,1825,152,1926,130,1927,135,1826,157,1670,196">
+<area shape="poly" id="edge19"  alt="" coords="1332,594,1387,642,1415,675,1436,714,1441,734,1440,752,1432,768,1420,781,1387,803,1347,824,1302,838,1239,848,1101,859,1100,854,1239,842,1301,832,1345,819,1384,799,1417,777,1428,765,1434,751,1436,735,1431,716,1411,678,1383,645,1329,598">
+<area shape="rect" id="node29"  alt="" coords="1110,473,1334,503">
+<area shape="poly" id="edge53"  alt="" coords="1296,568,1243,514,1246,511,1300,565">
+<area shape="poly" id="edge54"  alt="" coords="1315,597,1316,714,1309,780,1302,805,1292,823,1278,833,1260,841,1213,852,1157,859,1101,862,1100,857,1156,853,1212,847,1259,836,1276,828,1288,820,1297,803,1304,779,1311,714,1309,597">
+<area shape="poly" id="edge18"  alt="" coords="1196,476,1092,418,1095,414,1199,471">
+<area shape="poly" id="edge20"  alt="" coords="222,846,229,796,234,796,227,847">
+<area shape="poly" id="edge23"  alt="" coords="228,754,212,703,217,701,233,752">
+<area shape="poly" id="edge24"  alt="" coords="321,751,364,740,406,726,458,695,461,700,408,730,366,745,323,756"></map>
+		</ul>
+
+	</div>
+	
+	<div class="panel panel-default">
+		<div class="panel-heading" data-toggle="collapse" data-target="#direct_associations_diagram">
+			<h4 class="panel-title">
+				Direct Associations Diagram <span class="glyphicon glyphicon-chevron-down"></span>
+			</h4>
+		</div>
+				<ul id="direct_associations_diagram" class="list-group panel-collapse collapse">
+			<img src="amiq_apb_pkg-amiq_apb_slave_driver_direct_associations.png" border="0" usemap="#_direct_associations_diagram" />
+			<map name="_direct_associations_diagram">
+<area shape="rect" id="node1" href="amiq_apb_pkg-amiq_apb_slave_driver.html"  alt="" coords="5,5,229,35">
+<area shape="rect" id="node2" href="amiq_apb_pkg-amiq_apb_slave_agent_config.html"  alt="" coords="443,5,725,35">
+<area shape="poly" id="edge1"  alt="" coords="230,17,430,17,430,23,230,23"></map>
+		</ul>
+
+	</div>
+
+<!-- ========= Generated From ======= -->
+		<hr>Generated from: <a href="../sv/amiq_apb_slave_driver.sv">amiq_apb_slave_driver.sv</a>
+
+
+	</div>
+
+	<div class="footer">
+		<hr><p class="text-center">Generated by <b>cristian.slav</b> on Fri Jan 30 16:50:59 EET 2015 using <a href="http://www.dvteclipse.com/" target="_new">Specador<sup>TM</sup></a> Version 3.5.34</p>
+    </div>
+
+	<script src="lib/jquery/js/jquery.js"></script>
+	<script src="lib/jquery/js/jquery.scrollUp.js"></script>
+	<script src="lib/bootstrap/js/bootstrap.js"></script>
+	<script src="js/content.js"></script>
+	<script src="js/custom.js"></script>
+
+	</body>
+</html>
+
+

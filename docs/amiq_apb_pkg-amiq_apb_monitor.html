@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>amiq_apb
+API Specification</title>
+
+	<meta name="author" content="cristian.slav">
+	<meta name="description" content="amiq_apb API Specification">
+	<meta name="generator" content="Specador. Copyright (C) 2005-2014 AMIQ EDA ">
+	<meta name="keywords" content="SystemVerilog, HTML Documentation, Specador, AMIQ EDA, amiq_apb API Specification">
+
+	<link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="css/content.css" rel="stylesheet">
+	<link href="css/custom.css" rel="stylesheet">
+</head>
+<body>
+
+	<div class="container-fluid">
+<!-- ========= Title ======= -->
+<h2>class      		<a href="summary-amiq_apb_pkg.html">amiq_apb_pkg</a>
+:: amiq_apb_monitor
+</h2>
+
+
+<!-- ========= Top Buttons ======= -->
+		<br>
+		<div class="btn-group">
+				
+	<button data-scroll=#constructor type="button" class="btn btn-default">Constructor <span class="badge">1</span></button>
+	<button data-scroll=#typedefs type="button" class="btn btn-default">Typedefs <span class="badge">1</span></button>
+	
+	
+	<button data-scroll=#variables type="button" class="btn btn-default">Variables <span class="badge">3</span></button>
+	
+	<button data-scroll=#functions type="button" class="btn btn-default">Functions <span class="badge">5</span></button>
+	<button data-scroll=#tasks type="button" class="btn btn-default">Tasks <span class="badge">4</span></button>
+    
+	<button data-scroll=#inheritance_diagram type="button" class="btn btn-default">Inheritance Diagram</button>
+	<button data-scroll=#collaboration_diagram type="button" class="btn btn-default">Collaboration Diagram</button>
+	<button data-scroll=#direct_associations_diagram type="button" class="btn btn-default">Direct Associations Diagram</button>
+
+		</div>
+		<br><br>
+
+<!-- ========= Inheritance Tree ======= -->
+
+<!-- ========= Description ======= -->
+	<pre class="comment">AMBA APB agent monitor</pre>
+
+<!-- ========= Parameters ======= -->
+
+<!-- ========= Constructor ======= -->
+	<div class="panel panel-default">
+		<div class="panel-heading" data-toggle="collapse" data-target="#constructor">
+			<h4 class="panel-title">
+				Constructor <span class="glyphicon glyphicon-chevron-down"></span>
+			</h4>
+		</div>
+					<ul id="constructor" class="list-group panel-collapse collapse in">
+					<li class="list-group-item">
+						<a name="constructor_new"></a>
+						<span class="signature">
+
+	 function 	
+
+	<b>		new
+</b>(	string
+name = "amiq_apb_monitor",
+	uvm_component
+parent)
+
+
+						</span>
+	<pre class="comment">Constructor<br><br><b>Arguments:</b><br>&nbsp;&nbsp;&nbsp;&nbsp;<b>name</b> - name of the component instance<br>&nbsp;&nbsp;&nbsp;&nbsp;<b>parent</b> - parent of the component instance<br></pre>
+
+					</li>
+			</ul>
+
+	</div>
+
+<!-- ========= Typedefs ======= -->
+	<div class="panel panel-default">
+		<div class="panel-heading" data-toggle="collapse" data-target="#typedefs">
+			<h4 class="panel-title">
+				Typedefs <span class="glyphicon glyphicon-chevron-down"></span>
+			</h4>
+		</div>
+					<ul id="typedefs" class="list-group panel-collapse collapse in">
+					<li class="list-group-item">
+						<a name="typedef_type_id"></a>
+						<span class="signature">
+
+	 <b>		type_id
+</b>
+
+		-> uvm_component_registry#(amiq_apb_monitor, "amiq_apb_monitor")
+	
+
+
+						</span>
+
+					</li>
+			</ul>
+
+	</div>
+
+<!-- ========= Structs ======= -->
+
+<!-- ========= Enums ======= -->
+
+<!-- ========= Variables ======= -->
+	<div class="panel panel-default">
+		<div class="panel-heading" data-toggle="collapse" data-target="#variables">
+			<h4 class="panel-title">
+				Variables <span class="glyphicon glyphicon-chevron-down"></span>
+			</h4>
+		</div>
+					<ul id="variables" class="list-group panel-collapse collapse in">
+					<li class="list-group-item">
+						<a name="variable_agent_config"></a>
+						<span class="signature">
+
+	<a href="amiq_apb_pkg-amiq_apb_agent_config.html">amiq_apb_agent_config</a>
+ <b>		agent_config
+</b>
+
+
+						</span>
+	<pre class="comment">Pointer to agent configuration</pre>
+
+					</li>
+					<li class="list-group-item">
+						<a name="variable_send_item"></a>
+						<span class="signature">
+
+	uvm_analysis_port#(amiq_apb_mon_item)
+ <b>		send_item
+</b>
+
+
+						</span>
+	<pre class="comment">Analysis port used to send forward the transfer item collected</pre>
+
+					</li>
+					<li class="list-group-item">
+						<a name="variable_type_name"></a>
+						<span class="signature">
+
+const static 	string
+ <b>		type_name
+</b>
+
+
+						</span>
+
+					</li>
+			</ul>
+
+	</div>
+
+<!-- ========= Constraints ======= -->
+
+<!-- ========= Functions ======= -->
+	<div class="panel panel-default">
+		<div class="panel-heading" data-toggle="collapse" data-target="#functions">
+			<h4 class="panel-title">
+				Functions <span class="glyphicon glyphicon-chevron-down"></span>
+			</h4>
+		</div>
+					<ul id="functions" class="list-group panel-collapse collapse in">
+					<li class="list-group-item">
+						<a name="function_get_id"></a>
+						<span class="signature">
+
+	virtual  function 	string
+
+	<b>		get_id
+</b>()
+
+
+						</span>
+	<pre class="comment">Function for getting the ID used in messaging<br><br><b>Returns:</b><br>&nbsp;&nbsp;&nbsp;&nbsp;message ID<br></pre>
+
+					</li>
+					<li class="list-group-item">
+						<a name="function_get_object_type"></a>
+						<span class="signature">
+
+	virtual  function 	uvm_object_wrapper
+
+	<b>		get_object_type
+</b>()
+
+
+						</span>
+
+					</li>
+					<li class="list-group-item">
+						<a name="function_get_type"></a>
+						<span class="signature">
+
+	static  function 	<a href="amiq_apb_pkg-amiq_apb_monitor.html#typedef_type_id">type_id</a>
+
+	<b>		get_type
+</b>()
+
+
+						</span>
+
+					</li>
+					<li class="list-group-item">
+						<a name="function_get_type_name"></a>
+						<span class="signature">
+
+	virtual  function 	string
+
+	<b>		get_type_name
+</b>()
+
+
+						</span>
+
+					</li>
+					<li class="list-group-item">
+						<a name="function_handle_reset"></a>
+						<span class="signature">
+
+	virtual  function 	void
+
+	<b>		handle_reset
+</b>()
+
+
+						</span>
+	<pre class="comment">Reset handler for monitor; the monitor should drop the item on reset</pre>
+
+					</li>
+			</ul>
+
+	</div>
+
+<!-- ========= Tasks ======= -->
+	<div class="panel panel-default">
+		<div class="panel-heading" data-toggle="collapse" data-target="#tasks">
+			<h4 class="panel-title">
+				Tasks <span class="glyphicon glyphicon-chevron-down"></span>
+			</h4>
+		</div>
+					<ul id="tasks" class="list-group panel-collapse collapse in">
+					<li class="list-group-item">
+						<a name="task_collect_transaction"></a>
+						<span class="signature">
+
+	virtual  task 	
+
+	<b>		collect_transaction
+</b>()
+
+
+						</span>
+	<pre class="comment">Task for collecting one transaction</pre>
+
+					</li>
+					<li class="list-group-item">
+						<a name="task_collect_transactions"></a>
+						<span class="signature">
+
+	virtual  task 	
+
+	<b>		collect_transactions
+</b>()
+
+
+						</span>
+	<pre class="comment">Task used for collecting transfer from the bus</pre>
+
+					</li>
+					<li class="list-group-item">
+						<a name="task_run_phase"></a>
+						<span class="signature">
+
+	virtual  task 	
+
+	<b>		run_phase
+</b>(	uvm_phase
+phase)
+
+
+						</span>
+	<pre class="comment">UVM run phase<br><br><b>Arguments:</b><br>&nbsp;&nbsp;&nbsp;&nbsp;<b>phase</b> - current phase<br></pre>
+
+					</li>
+					<li class="list-group-item">
+						<a name="task_wait_reset_end"></a>
+						<span class="signature">
+
+	virtual  task 	
+
+	<b>		wait_reset_end
+</b>()
+
+
+						</span>
+	<pre class="comment">Wait for reset to be finished</pre>
+
+					</li>
+			</ul>
+
+	</div>
+
+<!-- ========= Diagrams ======= -->
+
+	<div class="panel panel-default">
+		<div class="panel-heading" data-toggle="collapse" data-target="#inheritance_diagram">
+			<h4 class="panel-title">
+				Inheritance Diagram <span class="glyphicon glyphicon-chevron-down"></span>
+			</h4>
+		</div>
+				<ul id="inheritance_diagram" class="list-group panel-collapse collapse">
+			<img src="amiq_apb_pkg-amiq_apb_monitor_inheritance.png" border="0" usemap="#_inheritance_diagram" />
+			<map name="_inheritance_diagram">
+<area shape="rect" id="node1" href="amiq_apb_pkg-amiq_apb_monitor.html"  alt="" coords="1085,5,1261,35">
+<area shape="rect" id="node2"  alt="" coords="877,5,1005,35">
+<area shape="poly" id="edge1"  alt="" coords="1085,23,1019,23,1019,17,1085,17">
+<area shape="rect" id="node3"  alt="" coords="651,5,797,35">
+<area shape="poly" id="edge2"  alt="" coords="877,23,811,23,811,17,877,17">
+<area shape="rect" id="node4"  alt="" coords="385,5,570,35">
+<area shape="poly" id="edge3"  alt="" coords="650,23,584,23,584,17,650,17">
+<area shape="rect" id="node5"  alt="" coords="185,5,303,35">
+<area shape="poly" id="edge4"  alt="" coords="384,23,317,23,317,17,384,17">
+<area shape="rect" id="node6"  alt="" coords="5,5,104,35">
+<area shape="poly" id="edge5"  alt="" coords="185,23,118,23,118,17,185,17"></map>
+		</ul>
+
+	</div>
+	
+	<div class="panel panel-default">
+		<div class="panel-heading" data-toggle="collapse" data-target="#collaboration_diagram">
+			<h4 class="panel-title">
+				Collaboration Diagram <span class="glyphicon glyphicon-chevron-down"></span>
+			</h4>
+		</div>
+				<ul id="collaboration_diagram" class="list-group panel-collapse collapse">
+			<img src="amiq_apb_pkg-amiq_apb_monitor_collaboration.png" border="0" usemap="#_collaboration_diagram" />
+			<map name="_collaboration_diagram">
+<area shape="rect" id="node1" href="amiq_apb_pkg-amiq_apb_monitor.html"  alt="" coords="511,1033,687,1063">
+<area shape="rect" id="node2"  alt="" coords="535,939,663,970">
+<area shape="poly" id="edge1"  alt="" coords="596,1033,596,983,601,983,601,1033">
+<area shape="rect" id="node7" href="amiq_apb_pkg-amiq_apb_agent_config.html"  alt="" coords="287,939,511,970">
+<area shape="poly" id="edge18"  alt="" coords="541,1036,472,1010,424,980,427,975,475,1006,543,1031">
+<area shape="rect" id="node25"  alt="" coords="699,939,941,970">
+<area shape="poly" id="edge50"  alt="" coords="630,1031,774,972,776,977,632,1036">
+<area shape="rect" id="node3"  alt="" coords="325,846,472,877">
+<area shape="poly" id="edge2"  alt="" coords="568,942,440,884,442,879,570,938">
+<area shape="rect" id="node4"  alt="" coords="305,379,490,410">
+<area shape="poly" id="edge3"  alt="" coords="324,860,278,852,234,836,216,824,201,809,191,791,188,770,188,580,192,549,204,521,222,496,244,474,296,438,346,412,349,417,299,442,248,478,226,500,209,524,197,551,193,580,193,769,197,789,205,806,219,820,236,831,279,846,325,854">
+<area shape="rect" id="node8"  alt="" coords="55,99,193,130">
+<area shape="poly" id="edge19"  alt="" coords="325,858,242,848,156,832,119,820,88,806,68,790,60,770,60,206,63,187,72,168,95,137,99,141,76,171,68,188,65,207,65,769,72,787,91,802,121,815,157,826,243,843,325,852">
+<area shape="rect" id="node16"  alt="" coords="331,753,439,783">
+<area shape="poly" id="edge35"  alt="" coords="325,854,270,842,248,834,234,823,227,811,228,800,235,791,247,784,279,774,317,769,318,775,280,780,249,789,239,795,233,802,233,810,238,820,251,829,272,837,326,849">
+<area shape="poly" id="edge36"  alt="" coords="391,847,384,822,382,796,387,796,389,821,396,846">
+<area shape="poly" id="edge48"  alt="" coords="471,846,490,839,503,831,509,821,504,809,481,790,452,778,454,773,484,785,509,807,514,822,507,834,492,844,473,851">
+<area shape="poly" id="edge49"  alt="" coords="472,867,488,864,493,862,484,857,487,853,499,861,490,869,473,872">
+<area shape="rect" id="node5"  alt="" coords="291,286,410,317">
+<area shape="poly" id="edge4"  alt="" coords="388,381,362,330,366,327,393,379">
+<area shape="rect" id="node18"  alt="" coords="1136,286,1331,317">
+<area shape="poly" id="edge40"  alt="" coords="490,381,1122,312,1122,317,491,386">
+<area shape="rect" id="node6"  alt="" coords="180,193,279,223">
+<area shape="poly" id="edge5"  alt="" coords="291,294,238,282,217,273,203,263,199,248,205,233,210,235,205,248,208,260,220,269,240,277,292,289">
+<area shape="rect" id="node10"  alt="" coords="303,193,518,223">
+<area shape="poly" id="edge21"  alt="" coords="410,294,561,281,626,271,647,265,658,260,661,253,657,248,630,236,585,227,532,220,532,215,586,222,632,231,661,244,666,253,662,263,649,270,627,276,561,287,410,299">
+<area shape="poly" id="edge6"  alt="" coords="396,940,396,890,401,890,401,940">
+<area shape="poly" id="edge7"  alt="" coords="125,130,124,174,128,199,138,223,165,252,200,273,239,286,278,294,277,299,238,291,198,278,162,256,134,225,123,201,118,174,119,129">
+<area shape="rect" id="node9"  alt="" coords="319,6,486,37">
+<area shape="poly" id="edge20"  alt="" coords="147,98,186,78,231,59,313,36,314,41,233,64,188,83,149,102">
+<area shape="poly" id="edge22"  alt="" coords="310,225,272,236,249,250,244,261,249,269,261,277,279,284,277,289,259,282,245,273,239,261,245,246,270,231,309,220">
+<area shape="poly" id="edge23"  alt="" coords="407,193,401,50,407,50,413,193">
+<area shape="poly" id="edge24"  alt="" coords="381,225,367,236,356,249,350,273,345,272,351,247,363,232,378,221">
+<area shape="rect" id="node11"  alt="" coords="217,99,354,130">
+<area shape="poly" id="edge25"  alt="" coords="329,196,309,185,291,170,284,157,282,144,287,143,289,155,295,166,312,181,331,191">
+<area shape="rect" id="node13"  alt="" coords="647,99,766,130">
+<area shape="poly" id="edge28"  alt="" coords="483,191,582,165,665,133,667,138,583,171,484,196">
+<area shape="poly" id="edge30"  alt="" coords="308,196,240,184,191,170,167,157,146,141,149,136,170,152,193,166,241,179,309,191">
+<area shape="rect" id="node14"  alt="" coords="495,99,623,130">
+<area shape="poly" id="edge31"  alt="" coords="431,191,524,134,527,139,434,196">
+<area shape="poly" id="edge34"  alt="" coords="443,221,466,238,471,250,468,263,448,281,425,292,422,288,445,277,463,260,466,251,462,242,440,225">
+<area shape="rect" id="node12"  alt="" coords="5,6,142,37">
+<area shape="poly" id="edge26"  alt="" coords="216,103,73,77,66,64,65,50,70,50,71,62,76,73,217,98">
+<area shape="poly" id="edge27"  alt="" coords="288,99,298,79,314,59,345,39,348,44,318,63,303,82,293,101">
+<area shape="poly" id="edge29"  alt="" coords="646,104,555,77,530,64,467,42,469,37,532,59,557,72,648,99">
+<area shape="rect" id="node15"  alt="" coords="566,6,751,37">
+<area shape="poly" id="edge32"  alt="" coords="590,98,610,87,627,73,645,47,650,50,631,76,613,91,593,102">
+<area shape="poly" id="edge33"  alt="" coords="502,102,473,92,446,77,418,49,421,45,450,73,476,87,503,97">
+<area shape="poly" id="edge8"  alt="" coords="330,758,299,746,270,729,249,707,242,692,240,676,240,393,245,369,259,349,278,333,300,320,302,324,282,337,263,353,250,371,245,394,245,676,247,691,253,704,273,725,301,741,332,753">
+<area shape="poly" id="edge37"  alt="" coords="439,774,455,771,460,768,452,764,455,759,465,768,457,776,440,779">
+<area shape="rect" id="node17"  alt="" coords="324,659,471,690">
+<area shape="poly" id="edge38"  alt="" coords="384,753,391,702,396,703,390,754">
+<area shape="poly" id="edge9"  alt="" coords="395,660,395,423,400,423,400,660">
+<area shape="poly" id="edge39"  alt="" coords="470,680,487,678,492,675,483,671,485,666,497,674,489,682,471,685">
+<area shape="rect" id="node23"  alt="" coords="592,566,691,597">
+<area shape="poly" id="edge45"  alt="" coords="432,657,592,598,594,603,434,662">
+<area shape="rect" id="node19"  alt="" coords="846,193,1061,223">
+<area shape="poly" id="edge41"  alt="" coords="1136,302,1081,299,1027,292,982,281,965,273,953,263,946,250,945,237,950,236,951,249,957,260,968,268,984,276,1028,287,1081,293,1136,297">
+<area shape="rect" id="node20"  alt="" coords="1111,193,1363,223">
+<area shape="poly" id="edge42"  alt="" coords="1231,286,1232,248,1233,236,1238,236,1237,248,1236,286">
+<area shape="rect" id="node21"  alt="" coords="1395,193,1629,223">
+<area shape="poly" id="edge43"  alt="" coords="1330,292,1422,280,1460,271,1485,259,1495,248,1502,235,1507,237,1500,251,1488,263,1461,276,1423,285,1331,297">
+<area shape="rect" id="node22"  alt="" coords="1733,193,1918,223">
+<area shape="poly" id="edge44"  alt="" coords="1331,298,1479,298,1645,293,1786,281,1833,271,1858,259,1861,254,1861,248,1852,234,1857,231,1866,247,1866,255,1862,263,1835,276,1786,286,1645,298,1479,303,1331,304">
+<area shape="rect" id="node28"  alt="" coords="1239,99,1443,130">
+<area shape="poly" id="edge10"  alt="" coords="1006,191,1166,152,1266,130,1267,135,1167,157,1007,196">
+<area shape="poly" id="edge11"  alt="" coords="1251,191,1314,136,1318,140,1254,195">
+<area shape="poly" id="edge12"  alt="" coords="1486,196,1377,138,1380,133,1488,191">
+<area shape="poly" id="edge13"  alt="" coords="1756,196,1554,157,1429,134,1430,129,1555,152,1757,191">
+<area shape="poly" id="edge15"  alt="" coords="647,596,659,646,670,713,674,778,671,805,662,823,634,840,590,851,486,862,486,856,589,846,632,835,658,820,666,803,669,778,665,714,653,647,642,597">
+<area shape="rect" id="node24"  alt="" coords="448,473,672,503">
+<area shape="poly" id="edge46"  alt="" coords="627,568,579,515,583,511,631,565">
+<area shape="poly" id="edge47"  alt="" coords="656,595,674,620,697,665,709,714,714,747,714,774,705,799,684,823,651,840,601,851,486,861,486,856,600,846,649,835,681,819,701,796,709,773,709,747,704,715,692,667,670,623,652,598">
+<area shape="poly" id="edge14"  alt="" coords="535,476,432,418,434,414,537,471">
+<area shape="rect" id="node29"  alt="" coords="787,846,1002,877">
+<area shape="poly" id="edge16"  alt="" coords="829,938,873,885,877,888,833,942">
+<area shape="rect" id="node26"  alt="" coords="1035,753,1317,783">
+<area shape="rect" id="node30"  alt="" coords="1055,659,1297,690">
+<area shape="poly" id="edge17"  alt="" coords="1173,753,1173,703,1179,703,1179,753">
+<area shape="rect" id="node27"  alt="" coords="778,753,1011,783">
+<area shape="poly" id="edge51"  alt="" coords="968,844,1063,819,1137,787,1139,792,1065,824,969,849">
+<area shape="poly" id="edge52"  alt="" coords="892,847,892,797,897,797,897,847"></map>
+		</ul>
+
+	</div>
+	
+	<div class="panel panel-default">
+		<div class="panel-heading" data-toggle="collapse" data-target="#direct_associations_diagram">
+			<h4 class="panel-title">
+				Direct Associations Diagram <span class="glyphicon glyphicon-chevron-down"></span>
+			</h4>
+		</div>
+				<ul id="direct_associations_diagram" class="list-group panel-collapse collapse">
+			<img src="amiq_apb_pkg-amiq_apb_monitor_direct_associations.png" border="0" usemap="#_direct_associations_diagram" />
+			<map name="_direct_associations_diagram">
+<area shape="rect" id="node1" href="amiq_apb_pkg-amiq_apb_monitor.html"  alt="" coords="5,33,181,63">
+<area shape="rect" id="node2" href="amiq_apb_pkg-amiq_apb_agent_config.html"  alt="" coords="500,5,724,35">
+<area shape="poly" id="edge1"  alt="" coords="181,41,486,24,486,29,182,46">
+<area shape="rect" id="node3"  alt="" coords="491,59,733,90">
+<area shape="poly" id="edge2"  alt="" coords="182,58,206,60,345,68,477,71,477,77,345,73,205,65,181,63"></map>
+		</ul>
+
+	</div>
+
+<!-- ========= Generated From ======= -->
+		<hr>Generated from: <a href="../sv/amiq_apb_monitor.sv">amiq_apb_monitor.sv</a>
+
+
+	</div>
+
+	<div class="footer">
+		<hr><p class="text-center">Generated by <b>cristian.slav</b> on Fri Jan 30 16:50:58 EET 2015 using <a href="http://www.dvteclipse.com/" target="_new">Specador<sup>TM</sup></a> Version 3.5.34</p>
+    </div>
+
+	<script src="lib/jquery/js/jquery.js"></script>
+	<script src="lib/jquery/js/jquery.scrollUp.js"></script>
+	<script src="lib/bootstrap/js/bootstrap.js"></script>
+	<script src="js/content.js"></script>
+	<script src="js/custom.js"></script>
+
+	</body>
+</html>
+
+
