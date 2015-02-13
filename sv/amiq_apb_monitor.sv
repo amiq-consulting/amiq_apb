@@ -26,93 +26,70 @@
 	`define AMIQ_MONITOR_SV
 
 	//AMBA APB agent monitor
-	class amiq_apb_monitor extends uvm_monitor;
+	class amiq_apb_monitor extends uagt_monitor#(.VIRTUAL_INTF_TYPE(amiq_apb_vif_t), .MONITOR_ITEM(amiq_apb_mon_item));
+
+		//casted agent configuration
+		amiq_apb_agent_config casted_agent_config;
+
 		`uvm_component_utils(amiq_apb_monitor)
-
-		//Pointer to agent configuration
-		amiq_apb_agent_config agent_config;
-
-		//Analysis port used to send forward the transfer item collected
-		uvm_analysis_port #(amiq_apb_mon_item) send_item;
-
-		//Process used in collect_transactions task
-		protected process process_collect_transactions;
-
-		//function for getting the ID used in messaging
-		//@return message ID
-		virtual function string get_id();
-			return "AMIQ_APB_MONITOR";
-		endfunction
 
 		//constructor
 		//@param name - name of the component instance
 		//@param parent - parent of the component instance
 		function new(string name = "amiq_apb_monitor", uvm_component parent);
 			super.new(name, parent);
-			send_item = new("send_item", this);
 		endfunction
 
-		//UVM run phase
+		//UVM start of simulation phase
 		//@param phase - current phase
-		virtual task run_phase(uvm_phase phase);
-			forever begin
-				wait_reset_end();
-				collect_transactions();
-			end
-		endtask
-
-		//Reset handler for monitor; the monitor should drop the item on reset
-		virtual function void handle_reset();
-			if(process_collect_transactions != null) begin
-				process_collect_transactions.kill();
-			end
+		virtual function void start_of_simulation_phase(input uvm_phase phase);
+			super.start_of_simulation_phase(phase);
+			assert ($cast(casted_agent_config, agent_config) == 1) else
+				`uvm_fatal(get_id(), "Could not cast agent configuration to amiq_apb_agent_config");
 		endfunction
-
-		//wait for reset to be finished
-		virtual task wait_reset_end();
-			@(posedge(agent_config.dut_vi.reset_n));
-		endtask
 
 		//task for collecting one transaction
 		virtual task collect_transaction();
+			amiq_apb_vif_t dut_vif = agent_config.get_dut_vif();
+
 			amiq_apb_mon_item item_collected;
 
 			//Wait until a transfer is initialized
-			while (agent_config.dut_vi.sel === 0) begin
-				@(posedge agent_config.dut_vi.clk);
+			while (dut_vif.sel === 0) begin
+				@(posedge dut_vif.clk);
 			end
 
 			//Create a new item_collected
 			item_collected = amiq_apb_mon_item::type_id::create("item_collected");
 			item_collected.start_time = $time;
-			item_collected.address = agent_config.dut_vi.addr & agent_config.get_address_mask();
-			item_collected.strobe = agent_config.dut_vi.strb & agent_config.get_strobe_mask();
-			item_collected.first_level_protection = amiq_apb_first_level_protection_t'(agent_config.dut_vi.prot[0]);
-			item_collected.second_level_protection = amiq_apb_second_level_protection_t'(agent_config.dut_vi.prot[1]);
-			item_collected.third_level_protection = amiq_apb_third_level_protection_t'(agent_config.dut_vi.prot[2]);
-			item_collected.rw = amiq_apb_direction_t'(agent_config.dut_vi.write);
-			item_collected.selected_slave = $clog2(agent_config.dut_vi.sel);
+			item_collected.address = dut_vif.addr & casted_agent_config.get_address_mask();
+			item_collected.strobe = dut_vif.strb & casted_agent_config.get_strobe_mask();
+			item_collected.first_level_protection = amiq_apb_first_level_protection_t'(dut_vif.prot[0]);
+			item_collected.second_level_protection = amiq_apb_second_level_protection_t'(dut_vif.prot[1]);
+			item_collected.third_level_protection = amiq_apb_third_level_protection_t'(dut_vif.prot[2]);
+			item_collected.rw = amiq_apb_direction_t'(dut_vif.write);
+			item_collected.selected_slave = $clog2(dut_vif.sel);
 
 			if(item_collected.rw == WRITE) begin
-				item_collected.data = agent_config.dut_vi.wdata & agent_config.get_data_mask();
+				item_collected.data = dut_vif.wdata & casted_agent_config.get_data_mask();
 			end
 
 			//Send the head of a transfer
-			send_item.write(item_collected);
+			output_port.write(item_collected);
 
 			//Wait a clock cycle (in this clock cycle enable must be asserted)
-			@(posedge agent_config.dut_vi.clk);
+			@(posedge dut_vif.clk);
 			item_collected.sys_clock_period = $time - item_collected.start_time;
 
 			//Wait until the slave is ready to end a transfer
-			while(agent_config.dut_vi.ready === 0) begin
-				@(posedge agent_config.dut_vi.clk);
+			while(dut_vif.ready === 0) begin
+				@(posedge dut_vif.clk);
 			end
 
-			if(agent_config.get_has_error_signal()) begin
-				item_collected.has_error = amiq_apb_error_response_t'(agent_config.dut_vi.slverr);
+			if(casted_agent_config.get_has_error_signal()) begin
+				item_collected.has_error = amiq_apb_error_response_t'(dut_vif.slverr);
 				if(item_collected.rw == READ) begin
-					item_collected.data = agent_config.dut_vi.rdata & agent_config.get_data_mask();
+					item_collected.data = dut_vif.rdata & casted_agent_config.get_data_mask();
 				end
 			end
 
@@ -120,24 +97,9 @@
 
 			`uvm_info(get_id(), $sformatf("Collected item: %s", item_collected.convert2string()), UVM_LOW)
 
-			send_item.write(item_collected);
+			output_port.write(item_collected);
 
-			@(posedge agent_config.dut_vi.clk);
-		endtask
-
-		//Task used for collecting transfer from the bus
-		virtual task collect_transactions();
-			fork
-				begin
-					process_collect_transactions = process::self();
-
-					`uvm_info(get_id(), "Starting collect_transactions()...", UVM_LOW);
-
-					forever begin
-						collect_transaction();
-					end
-				end
-			join
+			@(posedge dut_vif.clk);
 		endtask
 
 	endclass

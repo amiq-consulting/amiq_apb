@@ -44,15 +44,15 @@
 			forever #5 clock = ~clock;
 		end
 
-		amiq_apb_if dut_if (.clk(clock));
+		amiq_apb_if dut_vif (.clk(clock));
 
 		initial begin
-			dut_if.reset_n <= 0;
-			#2000 dut_if.reset_n <= 1;
+			dut_vif.reset_n <= 0;
+			#2000 dut_vif.reset_n <= 1;
 		end
 
 		initial begin
-			uvm_config_db #(virtual amiq_apb_if)::set(null, "uvm_test_top", "dut_vi", dut_if);
+			uvm_config_db #(virtual amiq_apb_if)::set(null, "uvm_test_top", "dut_vi", dut_vif);
 
 			run_test();
 		end

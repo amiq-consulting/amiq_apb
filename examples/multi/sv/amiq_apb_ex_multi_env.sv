@@ -80,11 +80,11 @@
 					`uvm_fatal("ENV", "Could not cast to amiq_apb_slave_sequencer");
 			end
 
-			env.master_agent.monitor.send_item.connect(scoreboard.input_port_master_mon);
+			env.master_agent.monitor.output_port.connect(scoreboard.input_port_master_mon);
 
-			env.master_agent.driver.send_item.connect(scoreboard.input_port_master_drv);
-			env.slave_agents[0].driver.send_item.connect(scoreboard.input_port_slave_drv_0);
-			env.slave_agents[1].driver.send_item.connect(scoreboard.input_port_slave_drv_1);
+			env.master_agent.driver.output_port.connect(scoreboard.input_port_master_drv);
+			env.slave_agents[0].driver.output_port.connect(scoreboard.input_port_slave_drv_0);
+			env.slave_agents[1].driver.output_port.connect(scoreboard.input_port_slave_drv_1);
 		endfunction
 
 		//function for handling reset

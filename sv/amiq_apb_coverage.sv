@@ -16,7 +16,7 @@
  * MODULE:      amiq_apb_coverage.sv
  * PROJECT:     amiq_apb
  * Engineers:   Andra Socianu (andra.socianu@amiq.com)
- Cristian Florin Slav (cristian.slav@amiq.com)
+ *              Cristian Florin Slav (cristian.slav@amiq.com)
  * Description: AMBA APB agent coverage collector
  *******************************************************************************/
 
@@ -25,14 +25,9 @@
 	`define AMIQ_APB_COVERAGE_SV
 
 	//AMBA APB agent coverage collector
-	class amiq_apb_coverage extends uvm_component;
+	class amiq_apb_coverage extends uagt_coverage#(.VIRTUAL_INTF_TYPE(amiq_apb_vif_t), .MONITOR_ITEM(amiq_apb_mon_item));
+
 		`uvm_component_utils(amiq_apb_coverage)
-
-		//Analysis import used to connect with the monitor
-		uvm_analysis_imp #(amiq_apb_mon_item, amiq_apb_coverage) receive_item_imp;
-
-		//Pointer to agent configuration
-		amiq_apb_agent_config agent_config;
 
 		//consecutive collected items
 		protected amiq_apb_mon_item collected_items[$];
@@ -218,9 +213,6 @@
 		function new(string name = "amiq_apb_coverage", uvm_component parent);
 			super.new(name, parent);
 
-			//Create the analysis import
-			receive_item_imp = new("receive_item_imp", this);
-
 			cover_item = new();
 			cover_item.set_inst_name($sformatf("%s_%s", get_full_name(), "cover_item"));
 
@@ -247,26 +239,30 @@
 			fork
 				collect_reset_time_units();
 			join_none
-
-			forever @(negedge agent_config.dut_vi.reset_n) begin
-					cover_bus_state_at_reset.sample();
-					while(collected_items.size() > 0) begin
-						void'(collected_items.pop_front());
-					end
-				end
 		endtask
+
+		//function for handling reset
+		virtual function void handle_reset();
+			super.handle_reset();
+			cover_bus_state_at_reset.sample();
+			while(collected_items.size() > 0) begin
+				void'(collected_items.pop_front());
+			end
+		endfunction
 
 		//Task used to collect how many clock cycles a reset lasts
 		task collect_reset_time_units();
-			forever @(negedge agent_config.dut_vi.reset_n)
+			amiq_apb_vif_t dut_vif = agent_config.get_dut_vif();
+
+			forever @(negedge dut_vif.reset_n)
 				begin
 					int unsigned reset_length = 0;
 
 					//Collect the reset_length
-					while(agent_config.dut_vi.reset_n === 0) begin
+					while(dut_vif.reset_n === 0) begin
 						reset_length = reset_length + 1;
 
-						@(posedge agent_config.dut_vi.clk);
+						@(posedge dut_vif.clk);
 					end
 
 					cover_reset_length.sample(reset_length);
@@ -274,28 +270,28 @@
 		endtask
 
 		//Overwrite the write method in order to cover the transfer item
-		//@param collected_item APB item received from the monitor
-		function void write(amiq_apb_mon_item collected_item);
-			if(collected_item.end_time != 0) begin
-				cover_item.sample(collected_item);
+		//@param transfer APB item received from the monitor
+		function void write_item_from_mon(amiq_apb_mon_item transfer);
+			if(transfer.end_time != 0) begin
+				cover_item.sample(transfer);
 
 				begin
 					bit found_item = 0;
 					for(int i = 0; i < collected_items.size(); i++) begin
-						if(collected_items[i].start_time == collected_item.start_time) begin
-							collected_items[i] = collected_item;
+						if(collected_items[i].start_time == transfer.start_time) begin
+							collected_items[i] = transfer;
 							found_item = 1;
 							break;
 						end
 					end
 
 					AMIQ_APB_ALGORITHM_ERROR : assert (found_item == 1) else
-						`uvm_fatal("COVERAGE", $sformatf("Did not found item in collected_items: %s", collected_item.convert2string()));
+						`uvm_fatal("COVERAGE", $sformatf("Did not found item in collected_items: %s", transfer.convert2string()));
 
 				end
 			end
 			else begin
-				collected_items.push_back(collected_item);
+				collected_items.push_back(transfer);
 
 				while(collected_items.size() > 2) begin
 					void'(collected_items.pop_front());

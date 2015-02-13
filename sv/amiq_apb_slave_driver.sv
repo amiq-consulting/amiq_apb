@@ -16,7 +16,7 @@
  * MODULE:      amiq_apb_slave_driver.sv
  * PROJECT:     amiq_apb
  * Engineers:   Andra Socianu (andra.socianu@amiq.com)
-                Cristian Florin Slav (cristian.slav@amiq.com)
+ Cristian Florin Slav (cristian.slav@amiq.com)
  * Description: AMBA APB slave driver
  *******************************************************************************/
 
@@ -25,10 +25,13 @@
 	`define AMIQ_APB_SLAVE_DRIVER_SV
 
 	//AMBA APB slave driver
-	class amiq_apb_slave_driver extends amiq_apb_driver#(amiq_apb_slave_drv_item);
+	class amiq_apb_slave_driver extends uagt_driver #(.VIRTUAL_INTF_TYPE(amiq_apb_vif_t), .REQ(amiq_apb_slave_drv_item));
 
-		//Pointer to slave agent config class
+		//casted agent configuration
 		amiq_apb_slave_agent_config slave_agent_config;
+
+		//pointer to DUT virtual interface
+		local amiq_apb_vif_t dut_vif;
 
 		`uvm_component_utils(amiq_apb_slave_driver)
 
@@ -39,13 +42,22 @@
 			super.new(name, parent);
 		endfunction
 
+		//UVM start of simulation phase
+		//@param phase - current phase
+		virtual function void start_of_simulation_phase(input uvm_phase phase);
+			super.start_of_simulation_phase(phase);
+			assert ($cast(slave_agent_config, agent_config) == 1) else
+				`uvm_fatal(get_id(), "Could not cast agent configuration to amiq_apb_slave_agent_config");
+			dut_vif = agent_config.get_dut_vif();
+		endfunction
+
 		//function for handling reset
 		virtual function void handle_reset();
 			super.handle_reset();
 
-			if(agent_config.initialize_signals_at_signals == 1) begin
-				agent_config.dut_vi.slverr <= 0;
-				agent_config.dut_vi.ready <= slave_agent_config.reset_value_for_ready;
+			if(slave_agent_config.get_initialize_signals_at_signals() == 1) begin
+				dut_vif.slverr <= 0;
+				dut_vif.ready <= slave_agent_config.get_reset_value_for_ready();
 			end
 		endfunction
 
@@ -55,52 +67,45 @@
 		//@param direction - current direction on the bus
 		//@return read data
 		virtual function amiq_apb_data_t get_read_data(amiq_apb_slave_drv_item transaction, amiq_apb_addr_t address, amiq_apb_direction_t direction);
-			return (transaction.data & agent_config.get_data_mask());
+			return (transaction.data & slave_agent_config.get_data_mask());
 		endfunction
 
 		//task for driving one transaction
 		//@param transaction - transaction to be driven on the bus
 		task drive_transaction(amiq_apb_slave_drv_item transaction);
+			int unsigned driving_delay = slave_agent_config.get_driving_delay();
 
 			forever begin
-				@(posedge agent_config.dut_vi.clk);
-				if(((agent_config.dut_vi.sel[slave_agent_config.slave_index] === 1) && (agent_config.dut_vi.enable === 0)) ||
-						((agent_config.dut_vi.sel[slave_agent_config.slave_index] === 1) && (agent_config.dut_vi.enable === 1) && (agent_config.dut_vi.ready === 0))) begin
+				@(posedge dut_vif.clk);
+				if(((dut_vif.sel[slave_agent_config.get_slave_index()] === 1) && (dut_vif.enable === 0)) ||
+						((dut_vif.sel[slave_agent_config.get_slave_index()] === 1) && (dut_vif.enable === 1) && (dut_vif.ready === 0))) begin
 					break;
 				end
 			end
 
 			if(transaction.wait_time > 0) begin
-				#agent_config.driving_delay;
-				agent_config.dut_vi.ready <= 0;
+				#driving_delay;
+				dut_vif.ready <= 0;
 
 				for(int i = 0; i < transaction.wait_time; i++) begin
-					@(posedge agent_config.dut_vi.clk);
+					@(posedge dut_vif.clk);
 				end
 			end
 
-			#agent_config.driving_delay;
-			agent_config.dut_vi.ready <= 1;
-			agent_config.dut_vi.rdata <= get_read_data(transaction, agent_config.dut_vi.addr, amiq_apb_direction_t'(agent_config.dut_vi.write));
+			#driving_delay;
+			dut_vif.ready <= 1;
+			dut_vif.rdata <= get_read_data(transaction, dut_vif.addr, amiq_apb_direction_t'(dut_vif.write));
 
-			if(agent_config.get_has_error_signal()) begin
-				agent_config.dut_vi.slverr <= bit'(transaction.has_error);
+			if(slave_agent_config.get_has_error_signal()) begin
+				dut_vif.slverr <= bit'(transaction.has_error);
 			end
 
-			@(posedge agent_config.dut_vi.clk);
+			@(posedge dut_vif.clk);
 
-			#agent_config.driving_delay;
-			agent_config.dut_vi.slverr = 0;
+			#driving_delay;
+			dut_vif.slverr <= 0;
 
 		endtask
-
-		//UVM end of elaboration phase
-		//@param phase - current phase
-		function void end_of_elaboration_phase(input uvm_phase phase);
-			super.end_of_elaboration_phase(phase);
-			assert ($cast(slave_agent_config, agent_config)) else
-			`uvm_fatal(get_id(), "Could not cast to slave agent configuration");
-		endfunction
 
 	endclass
 

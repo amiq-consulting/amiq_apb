@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<spechtml version="4">
+<spechtml version="5">
     <location>docs</location>
     <title>amiq_apb
 API Specification</title>
@@ -12,7 +12,7 @@ API Specification</title>
     <created-by-user-watermark>true</created-by-user-watermark>
     <clean-location>false</clean-location>
     <just-project-files>false</just-project-files>
-    <public-only>true</public-only>
+    <public-only>false</public-only>
     <filter-string/>
     <project-nature>vlog</project-nature>
     <export-vlog-package>amiq_apb_pkg</export-vlog-package>
@@ -32,8 +32,8 @@ API Specification</title>
     <export-vlog-module-diagram>true</export-vlog-module-diagram>
     <export-vlog-module-diagram-with-ports>true</export-vlog-module-diagram-with-ports>
     <export-vhdl-libraries>true</export-vhdl-libraries>
-    <export-vhdl-module-diagram>false</export-vhdl-module-diagram>
-    <export-vhdl-module-diagram-with-ports>false</export-vhdl-module-diagram-with-ports>
+    <export-vhdl-architecture-flow-diagram>false</export-vhdl-architecture-flow-diagram>
+    <export-vhdl-architecture-flow-diagram-with-ports>false</export-vhdl-architecture-flow-diagram-with-ports>
     <export-e-macro>true</export-e-macro>
     <export-e-covergroups>true</export-e-covergroups>
     <export-e-checks>true</export-e-checks>

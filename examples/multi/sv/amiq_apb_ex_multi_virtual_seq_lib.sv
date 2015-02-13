@@ -46,6 +46,7 @@
 
 		//task for randomly driving a reset
 		task drive_reset();
+			amiq_apb_vif_t dut_vif = p_sequencer.master_sequencer.agent_config.get_dut_vif();
 			int unsigned delay;
 
 			`uvm_info(get_id(), "Start driving reset", UVM_LOW)
@@ -53,29 +54,29 @@
 			assert(std::randomize(delay) with {
 						delay inside {[0:10]};
 					});
-			repeat(delay) @p_sequencer.master_sequencer.agent_config.dut_vi.clk;
+			repeat(delay) @dut_vif.clk;
 
 			assert(std::randomize(delay) with {
 						delay inside {[0:10]};
 					});
 			#(delay);
-			p_sequencer.master_sequencer.agent_config.dut_vi.reset_n = 0;
+			dut_vif.reset_n = 0;
 
 			assert(std::randomize(delay) with {
 						delay inside {[1:10]};
 					});
-			repeat(delay) @p_sequencer.master_sequencer.agent_config.dut_vi.clk;
+			repeat(delay) @dut_vif.clk;
 
 			assert(std::randomize(delay) with {
 						delay inside {[0:10]};
 					});
 			#(delay);
-			p_sequencer.master_sequencer.agent_config.dut_vi.reset_n = 1;
+			dut_vif.reset_n = 1;
 
 			assert(std::randomize(delay) with {
 						delay inside {[1:10]};
 					});
-			repeat(delay) @p_sequencer.master_sequencer.agent_config.dut_vi.clk;
+			repeat(delay) @dut_vif.clk;
 		endtask
 
 	endclass

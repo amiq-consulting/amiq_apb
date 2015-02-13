@@ -35,30 +35,25 @@
 		function new(input string name, input uvm_component parent);
 			super.new(name, parent);
 
-			amiq_apb_driver#(amiq_apb_master_drv_item)::type_id::set_inst_override(amiq_apb_master_driver::get_type(), "driver", this);
-			amiq_apb_sequencer#(amiq_apb_master_drv_item)::type_id::set_inst_override(amiq_apb_master_sequencer::get_type(), "sequencer", this);
-			amiq_apb_agent_config::type_id::set_inst_override(amiq_apb_master_agent_config::get_type(), "agent_config", this);
+			uagt_agent_config #(.VIRTUAL_INTF_TYPE(amiq_apb_vif_t))::type_id::set_inst_override(amiq_apb_master_agent_config::get_type(), "agent_config", this);
+			uagt_driver #(.VIRTUAL_INTF_TYPE(amiq_apb_vif_t), .REQ(amiq_apb_master_drv_item))::type_id::set_inst_override(amiq_apb_master_driver::get_type(), "driver", this);
+			uagt_sequencer #(.REQ(amiq_apb_master_drv_item))::type_id::set_inst_override(amiq_apb_master_sequencer::get_type(), "sequencer", this);
 		endfunction
 
 		//UVM connect phase
 		//@param phase - current phase
 		virtual function void connect_phase(uvm_phase phase);
+			amiq_apb_master_sequencer master_sequencer;
 			super.connect_phase(phase);
 
-			if(sequencer != null) begin
-				amiq_apb_master_sequencer casted_sequncer;
-				amiq_apb_master_agent_config casted_agent_config;
+			if($cast(master_sequencer, sequencer) == 0) begin
+				`uvm_fatal(get_id(), "Could not cast to amiq_apb_master_sequencer")
+			end
 
-				assert($cast(casted_agent_config, agent_config)) else
-					`uvm_fatal(get_id(), "Could not cast to amiq_apb_master_agent_config");
-
-				assert($cast(casted_sequncer, sequencer)) else
-					`uvm_fatal(get_id(), "Could not cast to amiq_apb_master_sequencer");
-
-				casted_sequncer.agent_config = casted_agent_config;
+			if($cast(master_sequencer.agent_config, agent_config) == 0) begin
+				`uvm_fatal(get_id(), "Could not cast to amiq_apb_master_agent_config")
 			end
 		endfunction
 	endclass
-
 `endif
 

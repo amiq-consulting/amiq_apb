@@ -25,7 +25,7 @@
 	`define AMIQ_APB_SEQUENCER_SV
 
 	//AMBA APB base sequencer
-	class amiq_apb_sequencer #(type DRIVER_ITEM=amiq_apb_base_item) extends uvm_sequencer#(DRIVER_ITEM);
+	class amiq_apb_sequencer #(type DRIVER_ITEM=amiq_apb_base_item) extends uagt_sequencer #(.REQ(DRIVER_ITEM));
 
 		`uvm_component_param_utils(amiq_apb_sequencer#(DRIVER_ITEM))
 
@@ -35,22 +35,6 @@
 		function new(string name = "amiq_apb_sequencer", uvm_component parent);
 			super.new(name, parent);
 		endfunction
-
-		//function for handling reset
-		//@param phase - current phase
-		virtual function void handle_reset(uvm_phase phase);
-			int objections_count;
-			stop_sequences();
-
-			objections_count = uvm_test_done.get_objection_count(this);
-
-			if(objections_count > 0) begin
-				uvm_test_done.drop_objection(this, $sformatf("Dropping %0d objections at reset", objections_count), objections_count);
-			end
-
-			start_phase_sequence(phase);
-		endfunction
-
 	endclass
 
 `endif

@@ -28,10 +28,34 @@
 	class amiq_apb_slave_agent_config extends amiq_apb_agent_config;
 
 		//slave index
-		int unsigned slave_index = 0;
+		protected int unsigned slave_index = 0;
 
 		//reset value of ready signal
-		bit reset_value_for_ready = 1;
+		protected bit reset_value_for_ready = 1;
+
+		//function for getting the slave_index
+		//@return slave_index
+		function int unsigned get_slave_index();
+			return slave_index;
+		endfunction
+
+		//function for setting a new slave_index
+		//@param slave_index - new value of slave_index
+		function void set_slave_index(int unsigned slave_index);
+			this.slave_index = slave_index;
+		endfunction
+
+		//function for getting the reset_value_for_ready
+		//@return reset_value_for_ready
+		function bit get_reset_value_for_ready();
+			return reset_value_for_ready;
+		endfunction
+
+		//function for setting a new reset_value_for_ready
+		//@param reset_value_for_ready - new value of reset_value_for_ready
+		function void set_reset_value_for_ready(bit reset_value_for_ready);
+			this.reset_value_for_ready = reset_value_for_ready;
+		endfunction
 
 		`uvm_component_utils(amiq_apb_slave_agent_config)
 

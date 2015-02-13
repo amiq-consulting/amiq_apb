@@ -57,7 +57,7 @@
 			start_item(master_seq_item);
 
 			if(!(master_seq_item.randomize() with {
-							master_seq_item.selected_slave < p_sequencer.agent_config.number_of_slaves;
+							master_seq_item.selected_slave < p_sequencer.agent_config.get_number_of_slaves();
 						})) begin
 				`uvm_fatal("AMIQ_APB_NOSEQITEM_MSEQ_ERR", "The sequence item could not be generated");
 			end

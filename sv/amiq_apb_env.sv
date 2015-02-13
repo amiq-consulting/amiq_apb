@@ -60,10 +60,10 @@
 				master_agent = amiq_apb_master_agent::type_id::create("master_agent", this);
 
 				master_agent_config = amiq_apb_master_agent_config::type_id::create("agent_config", master_agent);
-				master_agent_config.dut_vi = env_config.dut_vi;
-				master_agent_config.number_of_slaves = env_config.number_of_slaves;
+				master_agent_config.set_dut_vif(env_config.dut_vi);
+				master_agent_config.set_number_of_slaves(env_config.number_of_slaves);
 
-				uvm_config_db#(amiq_apb_agent_config)::set(this, "master_agent", "agent_config", master_agent_config);
+				uvm_config_db#(uagt_agent_config #(amiq_apb_vif_t))::set(this, "master_agent", "agent_config", master_agent_config);
 			end
 
 			slave_agents = new[env_config.number_of_slaves];
@@ -74,10 +74,10 @@
 				slave_agents[i] = amiq_apb_slave_agent::type_id::create(agent_name, this);
 
 				slave_agent_config = amiq_apb_slave_agent_config::type_id::create("agent_config", slave_agents[i]);
-				slave_agent_config.dut_vi = env_config.dut_vi;
-				slave_agent_config.slave_index = i;
+				slave_agent_config.set_dut_vif(env_config.dut_vi);
+				slave_agent_config.set_slave_index(i);
 
-				uvm_config_db#(amiq_apb_agent_config)::set(this, agent_name, "agent_config", slave_agent_config);
+				uvm_config_db#(uagt_agent_config #(amiq_apb_vif_t))::set(this, agent_name, "agent_config", slave_agent_config);
 			end
 		endfunction
 

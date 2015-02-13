@@ -24,12 +24,14 @@
 	//protection against multiple includes
 	`define AMIQ_APB_PKG_SV
 
+	`include "uagt_pkg.sv"
 	`include "amiq_apb_if.sv"
 
 	//AMBA APB environment package
 	package amiq_apb_pkg;
 
 		import uvm_pkg::*;
+		import uagt_pkg::*;
 
 		`include "uvm_macros.svh"
 
@@ -43,7 +45,6 @@
 		`include "amiq_apb_coverage.sv"
 		`include "amiq_apb_monitor.sv"
 		`include "amiq_apb_sequencer.sv"
-		`include "amiq_apb_driver.sv"
 		`include "amiq_apb_agent.sv"
 
 		`include "amiq_apb_master_drv_item.sv"

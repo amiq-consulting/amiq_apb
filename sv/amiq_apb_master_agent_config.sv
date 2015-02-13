@@ -28,7 +28,19 @@
 	class amiq_apb_master_agent_config extends amiq_apb_agent_config;
 
 		//number of slaves
-		int unsigned number_of_slaves = `AMIQ_APB_MAX_SEL_WIDTH;
+		protected int unsigned number_of_slaves = `AMIQ_APB_MAX_SEL_WIDTH;
+
+		//function for getting the number_of_slaves
+		//@return number_of_slaves
+		function int unsigned get_number_of_slaves();
+			return number_of_slaves;
+		endfunction
+
+		//function for setting a new number_of_slaves
+		//@param number_of_slaves - new value of number_of_slaves
+		function void set_number_of_slaves(int unsigned number_of_slaves);
+			this.number_of_slaves = number_of_slaves;
+		endfunction
 
 		`uvm_component_utils(amiq_apb_master_agent_config)
 

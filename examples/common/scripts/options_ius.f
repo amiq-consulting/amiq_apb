@@ -1,3 +1,5 @@
+
++incdir+${UAGT_HOME}/sv
 +incdir+${PROJECT_DIR}/sv/
 
 +incdir+${EXAMPLE_DIR}/rtl/

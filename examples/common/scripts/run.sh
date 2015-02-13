@@ -1,5 +1,12 @@
 #!/bin/sh -e
 
+if [ -z "$UAGT_HOME" ]; then
+    echo "System variable UAGT_HOME was not set."
+    echo "This project is dependent on uagt package and you must set UAGT_HOME to its location!"
+    echo "You can download uagt package from https://github.com/amiq-consulting/uagt"
+    exit 1
+fi
+
 #the default values of the user controlled options
 default_run_mode="batch"
 default_tool=ius
@@ -47,7 +54,6 @@ run_with_ius_test() {
 
 		echo "database -open waves -into waves.shm -default"     >> ncsim_cmds.tcl
 		echo "probe -create ${TOP_MODULE_NAME}  -depth all -tasks -functions -uvm -packed 4k -unpacked 16k -all" >> ncsim_cmds.tcl
-		echo "simvision input  ${EXAMPLE_DIR}/scripts/amiq_chk.svcf" >> ncsim_cmds.tcl
 
 		EXTRA_OPTIONS=" ${EXTRA_OPTIONS} -gui -input ncsim_cmds.tcl "
 	else
@@ -78,7 +84,7 @@ run_with_questa_test() {
 		rm -rf vsim_cmds.do
 		touch vsim_cmds.do
 
-		echo "add wave -position insertpoint sim:/${TOP_MODULE_NAME}/dut_if/*"     >> vsim_cmds.do
+		echo "add wave -position insertpoint sim:/${TOP_MODULE_NAME}/dut_vif/*"     >> vsim_cmds.do
 
 		EXTRA_OPTIONS=" ${EXTRA_OPTIONS}  -do vsim_cmds.do -i "
 	else

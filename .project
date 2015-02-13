@@ -96,7 +96,7 @@
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb</name>
+			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/uagt</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
@@ -151,12 +151,7 @@
 			<locationURI>DVT_PATH/apps/cadence/INCISIV_13.20.006/tools.lnx86/uvm-1.1/uvm_lib/uvm_sv/src/uvm_pkg.sv</locationURI>
 		</link>
 		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/examples</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv</name>
+			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/uagt/sv</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
@@ -776,149 +771,39 @@
 			<locationURI>DVT_PATH/apps/cadence/INCISIV_13.20.006/tools.lnx86/uvm-1.1/uvm_lib/uvm_sv/src/tlm2/uvm_tlm2_time.svh</locationURI>
 		</link>
 		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/examples/multi</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
+			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/uagt/sv/uagt_agent.sv</name>
+			<type>1</type>
+			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/uagt/sv/uagt_agent.sv</locationURI>
 		</link>
 		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_agent.sv</name>
+			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/uagt/sv/uagt_agent_config.sv</name>
 			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_agent.sv</locationURI>
+			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/uagt/sv/uagt_agent_config.sv</locationURI>
 		</link>
 		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_agent_config.sv</name>
+			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/uagt/sv/uagt_coverage.sv</name>
 			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_agent_config.sv</locationURI>
+			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/uagt/sv/uagt_coverage.sv</locationURI>
 		</link>
 		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_base_item.sv</name>
+			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/uagt/sv/uagt_driver.sv</name>
 			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_base_item.sv</locationURI>
+			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/uagt/sv/uagt_driver.sv</locationURI>
 		</link>
 		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_coverage.sv</name>
+			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/uagt/sv/uagt_monitor.sv</name>
 			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_coverage.sv</locationURI>
+			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/uagt/sv/uagt_monitor.sv</locationURI>
 		</link>
 		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_defines.sv</name>
+			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/uagt/sv/uagt_pkg.sv</name>
 			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_defines.sv</locationURI>
+			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/uagt/sv/uagt_pkg.sv</locationURI>
 		</link>
 		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_driver.sv</name>
+			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/uagt/sv/uagt_sequencer.sv</name>
 			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_driver.sv</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_env.sv</name>
-			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_env.sv</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_env_config.sv</name>
-			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_env_config.sv</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_if.sv</name>
-			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_if.sv</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_item.sv</name>
-			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_item.sv</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_macros.sv</name>
-			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_macros.sv</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_master_agent.sv</name>
-			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_master_agent.sv</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_master_agent_config.sv</name>
-			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_master_agent_config.sv</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_master_driver.sv</name>
-			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_master_driver.sv</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_master_drv_item.sv</name>
-			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_master_drv_item.sv</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_master_seq_lib.sv</name>
-			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_master_seq_lib.sv</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_master_sequencer.sv</name>
-			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_master_sequencer.sv</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_mon_item.sv</name>
-			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_mon_item.sv</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_monitor.sv</name>
-			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_monitor.sv</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_pkg.sv</name>
-			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_pkg.sv</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_sequencer.sv</name>
-			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_sequencer.sv</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_slave_agent.sv</name>
-			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_slave_agent.sv</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_slave_agent_config.sv</name>
-			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_slave_agent_config.sv</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_slave_driver.sv</name>
-			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_slave_driver.sv</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_slave_drv_item.sv</name>
-			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_slave_drv_item.sv</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_slave_seq_lib.sv</name>
-			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_slave_seq_lib.sv</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_slave_sequencer.sv</name>
-			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_slave_sequencer.sv</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_types.sv</name>
-			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/sv/amiq_apb_types.sv</locationURI>
+			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/uagt/sv/uagt_sequencer.sv</locationURI>
 		</link>
 		<link>
 			<name>DVT Auto-Linked/apps/cadence/INCISIV_13.20.006/tools.lnx86/uvm-1.1/uvm_lib/uvm_sv/src/reg/sequences/uvm_mem_access_seq.svh</name>
@@ -959,61 +844,6 @@
 			<name>DVT Auto-Linked/apps/cadence/INCISIV_13.20.006/tools.lnx86/uvm-1.1/uvm_lib/uvm_sv/src/reg/sequences/uvm_reg_mem_shared_access_seq.svh</name>
 			<type>1</type>
 			<locationURI>DVT_PATH/apps/cadence/INCISIV_13.20.006/tools.lnx86/uvm-1.1/uvm_lib/uvm_sv/src/reg/sequences/uvm_reg_mem_shared_access_seq.svh</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/examples/multi/sv</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/examples/multi/tests</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/examples/multi/sv/amiq_apb_ex_multi_env.sv</name>
-			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/examples/multi/sv/amiq_apb_ex_multi_env.sv</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/examples/multi/sv/amiq_apb_ex_multi_pkg.sv</name>
-			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/examples/multi/sv/amiq_apb_ex_multi_pkg.sv</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/examples/multi/sv/amiq_apb_ex_multi_scoreboard.sv</name>
-			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/examples/multi/sv/amiq_apb_ex_multi_scoreboard.sv</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/examples/multi/sv/amiq_apb_ex_multi_top.sv</name>
-			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/examples/multi/sv/amiq_apb_ex_multi_top.sv</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/examples/multi/sv/amiq_apb_ex_multi_virtual_seq_lib.sv</name>
-			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/examples/multi/sv/amiq_apb_ex_multi_virtual_seq_lib.sv</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/examples/multi/sv/amiq_apb_ex_multi_virtual_sequencer.sv</name>
-			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/examples/multi/sv/amiq_apb_ex_multi_virtual_sequencer.sv</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/examples/multi/tests/amiq_apb_ex_multi_test_basic.sv</name>
-			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/examples/multi/tests/amiq_apb_ex_multi_test_basic.sv</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/examples/multi/tests/amiq_apb_ex_multi_test_pkg.sv</name>
-			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/examples/multi/tests/amiq_apb_ex_multi_test_pkg.sv</locationURI>
-		</link>
-		<link>
-			<name>DVT Auto-Linked/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/examples/multi/tests/amiq_apb_ex_multi_test_random.sv</name>
-			<type>1</type>
-			<locationURI>DVT_PATH/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/examples/multi/tests/amiq_apb_ex_multi_test_random.sv</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>
