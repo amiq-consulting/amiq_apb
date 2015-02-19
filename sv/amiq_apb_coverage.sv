@@ -25,7 +25,7 @@
 	`define AMIQ_APB_COVERAGE_SV
 
 	//AMBA APB agent coverage collector
-	class amiq_apb_coverage extends uagt_coverage#(.VIRTUAL_INTF_TYPE(amiq_apb_vif_t), .MONITOR_ITEM(amiq_apb_mon_item));
+	class amiq_apb_coverage extends cagt_coverage#(.VIRTUAL_INTF_TYPE(amiq_apb_vif_t), .MONITOR_ITEM(amiq_apb_mon_item));
 
 		`uvm_component_utils(amiq_apb_coverage)
 

@@ -26,7 +26,7 @@
 	`define AMIQ_APB_AGENT_CONFIG_SV
 
 	//Configuration class for agents - contain switches
-	class amiq_apb_agent_config extends uagt_agent_config #(amiq_apb_vif_t);
+	class amiq_apb_agent_config extends cagt_agent_config #(amiq_apb_vif_t);
 
 		//Address bus width
 		protected int unsigned address_width = `AMIQ_APB_MAX_ADDR_WIDTH;

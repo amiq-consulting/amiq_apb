@@ -10,7 +10,7 @@ API Specification</title>
     <show-external-doc-refs-in-navbar>true</show-external-doc-refs-in-navbar>
     <use-new-html-style>true</use-new-html-style>
     <created-by-user-watermark>true</created-by-user-watermark>
-    <clean-location>false</clean-location>
+    <clean-location>true</clean-location>
     <just-project-files>false</just-project-files>
     <public-only>false</public-only>
     <filter-string/>

@@ -35,9 +35,9 @@
 		function new(input string name, input uvm_component parent);
 			super.new(name, parent);
 
-			uagt_agent_config #(.VIRTUAL_INTF_TYPE(amiq_apb_vif_t))::type_id::set_inst_override(amiq_apb_slave_agent_config::get_type(), "agent_config", this);
-			uagt_driver #(.VIRTUAL_INTF_TYPE(amiq_apb_vif_t), .REQ(amiq_apb_slave_drv_item))::type_id::set_inst_override(amiq_apb_slave_driver::get_type(), "driver", this);
-			uagt_sequencer #(.REQ(amiq_apb_slave_drv_item))::type_id::set_inst_override(amiq_apb_slave_sequencer::get_type(), "sequencer", this);
+			cagt_agent_config #(.VIRTUAL_INTF_TYPE(amiq_apb_vif_t))::type_id::set_inst_override(amiq_apb_slave_agent_config::get_type(), "agent_config", this);
+			cagt_driver #(.VIRTUAL_INTF_TYPE(amiq_apb_vif_t), .REQ(amiq_apb_slave_drv_item))::type_id::set_inst_override(amiq_apb_slave_driver::get_type(), "driver", this);
+			cagt_sequencer #(.REQ(amiq_apb_slave_drv_item))::type_id::set_inst_override(amiq_apb_slave_sequencer::get_type(), "sequencer", this);
 		endfunction
 
 	endclass

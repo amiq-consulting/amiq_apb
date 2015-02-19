@@ -25,7 +25,7 @@
 	`define AMIQ_APB_AGENT_SV
 
 	//AMBA APB base agent
-	class amiq_apb_agent #(type DRIVER_ITEM_REQ=uvm_sequence_item) extends uagt_agent #(.VIRTUAL_INTF_TYPE(amiq_apb_vif_t), .MONITOR_ITEM(amiq_apb_mon_item), .DRIVER_ITEM_REQ(DRIVER_ITEM_REQ));
+	class amiq_apb_agent #(type DRIVER_ITEM_REQ=uvm_sequence_item) extends cagt_agent #(.VIRTUAL_INTF_TYPE(amiq_apb_vif_t), .MONITOR_ITEM(amiq_apb_mon_item), .DRIVER_ITEM_REQ(DRIVER_ITEM_REQ));
 
 		`uvm_component_param_utils(amiq_apb_agent#(DRIVER_ITEM_REQ))
 
@@ -35,8 +35,8 @@
 		function new(string name = "amiq_apb_agent", uvm_component parent);
 			super.new(name, parent);
 
-			uagt_monitor#(.VIRTUAL_INTF_TYPE(amiq_apb_vif_t), .MONITOR_ITEM(amiq_apb_mon_item))::type_id::set_inst_override(amiq_apb_monitor::get_type(), "monitor", this);
-			uagt_coverage#(.VIRTUAL_INTF_TYPE(amiq_apb_vif_t), .MONITOR_ITEM(amiq_apb_mon_item))::type_id::set_inst_override(amiq_apb_coverage::get_type(), "coverage", this);
+			cagt_monitor#(.VIRTUAL_INTF_TYPE(amiq_apb_vif_t), .MONITOR_ITEM(amiq_apb_mon_item))::type_id::set_inst_override(amiq_apb_monitor::get_type(), "monitor", this);
+			cagt_coverage#(.VIRTUAL_INTF_TYPE(amiq_apb_vif_t), .MONITOR_ITEM(amiq_apb_mon_item))::type_id::set_inst_override(amiq_apb_coverage::get_type(), "coverage", this);
 		endfunction
 	endclass
 

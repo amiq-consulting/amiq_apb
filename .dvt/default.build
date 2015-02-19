@@ -1,6 +1,6 @@
 -uvm
 
-+incdir+${UAGT_HOME}/sv
++incdir+${CAGT_HOME}/sv
 +incdir+sv
 +incdir+examples/multi/sv
 +incdir+examples/multi/tests

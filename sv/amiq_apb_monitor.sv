@@ -26,7 +26,7 @@
 	`define AMIQ_MONITOR_SV
 
 	//AMBA APB agent monitor
-	class amiq_apb_monitor extends uagt_monitor#(.VIRTUAL_INTF_TYPE(amiq_apb_vif_t), .MONITOR_ITEM(amiq_apb_mon_item));
+	class amiq_apb_monitor extends cagt_monitor#(.VIRTUAL_INTF_TYPE(amiq_apb_vif_t), .MONITOR_ITEM(amiq_apb_mon_item));
 
 		//casted agent configuration
 		amiq_apb_agent_config casted_agent_config;

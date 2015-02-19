@@ -25,7 +25,7 @@
 	`define AMIQ_APB_SLAVE_DRIVER_SV
 
 	//AMBA APB slave driver
-	class amiq_apb_slave_driver extends uagt_driver #(.VIRTUAL_INTF_TYPE(amiq_apb_vif_t), .REQ(amiq_apb_slave_drv_item));
+	class amiq_apb_slave_driver extends cagt_driver #(.VIRTUAL_INTF_TYPE(amiq_apb_vif_t), .REQ(amiq_apb_slave_drv_item));
 
 		//casted agent configuration
 		amiq_apb_slave_agent_config slave_agent_config;

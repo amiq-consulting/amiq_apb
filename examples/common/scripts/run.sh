@@ -1,9 +1,9 @@
 #!/bin/sh -e
 
-if [ -z "$UAGT_HOME" ]; then
-    echo "System variable UAGT_HOME was not set."
-    echo "This project is dependent on uagt package and you must set UAGT_HOME to its location!"
-    echo "You can download uagt package from https://github.com/amiq-consulting/uagt"
+if [ -z "$CAGT_HOME" ]; then
+    echo "System variable CAGT_HOME was not set."
+    echo "This project is dependent on cagt package and you must set CAGT_HOME to its location!"
+    echo "You can download cagt package from https://github.com/amiq-consulting/cagt"
     exit 1
 fi
 

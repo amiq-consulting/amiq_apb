@@ -25,7 +25,7 @@
 	`define AMIQ_APB_SEQUENCER_SV
 
 	//AMBA APB base sequencer
-	class amiq_apb_sequencer #(type DRIVER_ITEM=amiq_apb_base_item) extends uagt_sequencer #(.REQ(DRIVER_ITEM));
+	class amiq_apb_sequencer #(type DRIVER_ITEM=amiq_apb_base_item) extends cagt_sequencer #(.REQ(DRIVER_ITEM));
 
 		`uvm_component_param_utils(amiq_apb_sequencer#(DRIVER_ITEM))
 
