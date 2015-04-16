@@ -15,8 +15,6 @@
  *
  * MODULE:      amiq_apb_slave_agent_config.sv
  * PROJECT:     amiq_apb
- * Engineers:   Andra Socianu (andra.socianu@amiq.com)
-                Cristian Florin Slav (cristian.slav@amiq.com)
  * Description: Configuration class for slave agents.
  *******************************************************************************/
 

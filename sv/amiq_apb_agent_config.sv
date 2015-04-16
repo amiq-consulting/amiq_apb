@@ -15,8 +15,6 @@
  *
  * MODULE:      amiq_apb_agent_config.sv
  * PROJECT:     amiq_apb
- * Engineers:   Andra Socianu (andra.socianu@amiq.com)
-                Cristian Florin Slav (cristian.slav@amiq.com)
  * Description: Configuration class for agents - contains switches and address
  *              width and strobe width.
  *******************************************************************************/
@@ -26,7 +24,22 @@
 	`define AMIQ_APB_AGENT_CONFIG_SV
 
 	//Configuration class for agents - contain switches
-	class amiq_apb_agent_config extends cagt_agent_config #(amiq_apb_vif_t);
+	class amiq_apb_agent_config extends uvm_component;
+		
+		//switch to determine the active or the passive aspect of the agent
+		protected uvm_active_passive_enum is_active = UVM_ACTIVE;
+
+		//switch to determine if to enable or not the coverage
+		protected bit has_coverage = 1;
+
+		//switch to determine if to enable or not the checks
+		protected bit has_checks = 1;
+
+		//pointer to the DUT interface
+		protected amiq_apb_vif_t dut_vif;
+		
+		//active level of reset signal
+		protected bit reset_active_level = 0;
 
 		//Address bus width
 		protected int unsigned address_width = `AMIQ_APB_MAX_ADDR_WIDTH;
@@ -58,6 +71,66 @@
 		//switch to initialize signals at reset
 		protected bit initialize_signals_at_signals = 1;
 
+		//function for getting the value of is_active field
+		//@return is_active field value
+		virtual function uvm_active_passive_enum get_is_active();
+			return is_active;
+		endfunction
+
+		//function for setting a new value for is_active field
+		//@param is_active - new value of the is_active field
+		virtual function void set_is_active(uvm_active_passive_enum is_active);
+			this.is_active = is_active;
+		endfunction
+		
+		//function for getting the value of has_coverage field
+		//@return has_coverage field value
+		virtual function bit get_has_coverage();
+			return has_coverage;
+		endfunction
+
+		//function for setting a new value for has_coverage field
+		//@param has_coverage - new value of the has_coverage field
+		virtual function void set_has_coverage(bit has_coverage);
+			this.has_coverage = has_coverage;
+		endfunction
+
+		//function for getting the value of has_checks field
+		//@return has_checks field value
+		virtual function bit get_has_checks();
+			return has_checks;
+		endfunction
+
+		//function for setting a new value for has_checks field
+		//@param has_checks - new value of the has_checks field
+		virtual function void set_has_checks(bit has_checks);
+			this.has_checks = has_checks;
+		endfunction
+
+		//function for getting the value of dut_vif field
+		//@return dut_vif field value
+		virtual function amiq_apb_vif_t get_dut_vif();
+			return dut_vif;
+		endfunction
+
+		//function for setting a new value for dut_vif field
+		//@param dut_vif - new value of the dut_vif field
+		virtual function void set_dut_vif(amiq_apb_vif_t dut_vif);
+			this.dut_vif = dut_vif;
+		endfunction
+
+		//function for getting the value of reset_active_level field
+		//@return reset_active_level field value
+		virtual function bit get_reset_active_level();
+			return reset_active_level;
+		endfunction
+
+		//function for setting a new value for reset_active_level field
+		//@param reset_active_level - new value of the reset_active_level field
+		virtual function void set_reset_active_level(bit reset_active_level);
+			this.reset_active_level = reset_active_level;
+		endfunction
+		
 		//function for getting the address_width
 		//@return address_width
 		function int unsigned get_address_width();
@@ -217,6 +290,12 @@
 			return (mask - 1);
 		endfunction
 
+		//function for getting the ID used in messaging
+		//@return message ID
+		virtual function string get_id();
+			return "AGT_CFG";
+		endfunction
+
 		`uvm_component_utils(amiq_apb_agent_config)
 
 		//constructor
@@ -231,13 +310,15 @@
 		//@param phase - current phase
 		virtual function void start_of_simulation_phase(input uvm_phase phase);
 			super.start_of_simulation_phase(phase);
-			if(dut_vif != null) begin
-				dut_vif.en_ready_low_max_time = en_ready_low_max_time;
-				dut_vif.en_rst_checks = en_rst_checks;
-				dut_vif.has_error_signal = has_error_signal;
-				dut_vif.en_x_z_checks = en_x_z_checks;
-				dut_vif.en_protocol_checks = en_protocol_checks;
-			end
+			
+			assert (dut_vif != null) else
+				`uvm_fatal(get_id(), "The pointer to the DUT interface is null - please make sure you set it via set_dut_vif() function before \"Start of Simulation\" phase!");
+			
+			dut_vif.en_ready_low_max_time = en_ready_low_max_time;
+			dut_vif.en_rst_checks = en_rst_checks;
+			dut_vif.has_error_signal = has_error_signal;
+			dut_vif.en_x_z_checks = en_x_z_checks;
+			dut_vif.en_protocol_checks = en_protocol_checks;
 		endfunction
 
 		//task for waiting the reset to start
@@ -259,7 +340,7 @@
 				@(negedge dut_vif.reset_n);
 			end
 		endtask
-
+		
 	endclass
 
 `endif

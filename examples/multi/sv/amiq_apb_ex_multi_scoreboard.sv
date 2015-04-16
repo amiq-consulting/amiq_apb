@@ -15,8 +15,6 @@
  *
  * NAME:        amiq_apb_ex_multi_scoreboard.sv
  * PROJECT:     amiq_apb
- * Engineers:   Andra Socianu (andra.socianu@amiq.com)
-                Cristian Florin Slav (cristian.slav@amiq.com)
  * Description: Scoreboard to test that what it is driven is the same with
  *              the monitored item.
  *******************************************************************************/

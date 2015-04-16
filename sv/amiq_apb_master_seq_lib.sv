@@ -15,8 +15,6 @@
  *
  * MODULE:      amiq_apb_master_seq_lib.sv
  * PROJECT:     amiq_apb
- * Engineers:   Andra Socianu (andra.socianu@amiq.com)
-                Cristian Florin Slav (cristian.slav@amiq.com)
  * Description: AMBA APB master sequence library
  *******************************************************************************/
 

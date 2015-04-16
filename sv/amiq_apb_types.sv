@@ -15,8 +15,6 @@
  *
  * MODULE:      amiq_apb_types.sv
  * PROJECT:     amiq_apb
- * Engineers:   Andra Socianu (andra.socianu@amiq.com)
-                Cristian Florin Slav (cristian.slav@amiq.com)
  * Description: AMBA APB types used in the environment
  *******************************************************************************/
 

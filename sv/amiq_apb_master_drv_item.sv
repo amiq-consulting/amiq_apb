@@ -15,8 +15,6 @@
  *
  * NAME:        amiq_apb_master_drv_item.sv
  * PROJECT:     amiq_apb
- * Engineers:   Andra Socianu (andra.socianu@amiq.com)
-                Cristian Florin Slav (cristian.slav@amiq.com)
  * Description: This file contains the definition of the item used by master driver.
  *******************************************************************************/
 

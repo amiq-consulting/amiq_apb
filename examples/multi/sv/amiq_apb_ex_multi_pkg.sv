@@ -15,8 +15,6 @@
  *
  * NAME:        amiq_apb_ex_multi_pkg.sv
  * PROJECT:     amiq_apb
- * Engineers:   Andra Socianu (andra.socianu@amiq.com)
-                Cristian Florin Slav (cristian.slav@amiq.com)
  * Description: This file contains includes of all the files part of amiq_apb_ex_multi_pkg
  *              package.
  *******************************************************************************/

@@ -15,8 +15,6 @@
  *
  * NAME:        amiq_apb_ex_multi_virtual_sequencer.sv
  * PROJECT:     amiq_apb
- * Engineers:   Andra Socianu (andra.socianu@amiq.com)
-                Cristian Florin Slav (cristian.slav@amiq.com)
  * Description: This file contains the declaration of the virtual sequencer.
  *******************************************************************************/
 

@@ -1,12 +1,5 @@
 #!/bin/sh -e
 
-if [ -z "$CAGT_HOME" ]; then
-    echo "System variable CAGT_HOME was not set."
-    echo "This project is dependent on cagt package and you must set CAGT_HOME to its location!"
-    echo "You can download cagt package from https://github.com/amiq-consulting/cagt"
-    exit 1
-fi
-
 #the default values of the user controlled options
 default_run_mode="batch"
 default_tool=ius

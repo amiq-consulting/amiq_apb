@@ -15,8 +15,6 @@
  *
  * MODULE:      amiq_apb_master_driver.sv
  * PROJECT:     amiq_apb
- * Engineers:   Andra Socianu (andra.socianu@amiq.com)
-                Cristian Florin Slav (cristian.slav@amiq.com)
  * Description: AMBA APB master driver
  *******************************************************************************/
 
@@ -25,7 +23,7 @@
 	`define AMIQ_APB_MASTER_DRIVER_SV
 
 	//AMBA APB master driver
-	class amiq_apb_master_driver extends cagt_driver #(.VIRTUAL_INTF_TYPE(amiq_apb_vif_t), .REQ(amiq_apb_master_drv_item));
+	class amiq_apb_master_driver extends amiq_apb_driver #(.DRIVER_ITEM_REQ(amiq_apb_master_drv_item));
 
 		//casted agent configuration
 		amiq_apb_master_agent_config master_agent_config;

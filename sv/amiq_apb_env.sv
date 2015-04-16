@@ -15,8 +15,6 @@
  *
  * NAME:        amiq_apb_env.sv
  * PROJECT:     amiq_apb
- * Engineers:   Andra Socianu (andra.socianu@amiq.com)
-                Cristian Florin Slav (cristian.slav@amiq.com)
  * Description: This file contains the declaration of the APB UVC environment class
  *******************************************************************************/
 
@@ -63,7 +61,7 @@
 				master_agent_config.set_dut_vif(env_config.dut_vi);
 				master_agent_config.set_number_of_slaves(env_config.number_of_slaves);
 
-				uvm_config_db#(cagt_agent_config #(amiq_apb_vif_t))::set(this, "master_agent", "agent_config", master_agent_config);
+				uvm_config_db#(amiq_apb_agent_config)::set(this, "master_agent", "agent_config", master_agent_config);
 			end
 
 			slave_agents = new[env_config.number_of_slaves];
@@ -77,7 +75,7 @@
 				slave_agent_config.set_dut_vif(env_config.dut_vi);
 				slave_agent_config.set_slave_index(i);
 
-				uvm_config_db#(cagt_agent_config #(amiq_apb_vif_t))::set(this, agent_name, "agent_config", slave_agent_config);
+				uvm_config_db#(amiq_apb_agent_config)::set(this, agent_name, "agent_config", slave_agent_config);
 			end
 		endfunction
 

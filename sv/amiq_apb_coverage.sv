@@ -15,8 +15,6 @@
  *
  * MODULE:      amiq_apb_coverage.sv
  * PROJECT:     amiq_apb
- * Engineers:   Andra Socianu (andra.socianu@amiq.com)
- *              Cristian Florin Slav (cristian.slav@amiq.com)
  * Description: AMBA APB agent coverage collector
  *******************************************************************************/
 
@@ -24,10 +22,24 @@
 	//protection against multiple includes
 	`define AMIQ_APB_COVERAGE_SV
 
+	`uvm_analysis_imp_decl(_item_from_mon)
+
 	//AMBA APB agent coverage collector
-	class amiq_apb_coverage extends cagt_coverage#(.VIRTUAL_INTF_TYPE(amiq_apb_vif_t), .MONITOR_ITEM(amiq_apb_mon_item));
+	class amiq_apb_coverage extends uvm_component;
+
+		//pointer to the agent configuration class
+		amiq_apb_agent_config agent_config;
+
+		//port for receiving items collected by the monitor
+		uvm_analysis_imp_item_from_mon#(amiq_apb_mon_item, amiq_apb_coverage) item_from_mon_port;
 
 		`uvm_component_utils(amiq_apb_coverage)
+		
+		//function for getting the ID used in messaging
+		//@return message ID
+		virtual function string get_id();
+			return "COV";
+		endfunction
 
 		//consecutive collected items
 		protected amiq_apb_mon_item collected_items[$];
@@ -212,6 +224,8 @@
 		//@param parent - parent of the component instance
 		function new(string name = "amiq_apb_coverage", uvm_component parent);
 			super.new(name, parent);
+			
+			item_from_mon_port = new("item_from_mon_port", this);
 
 			cover_item = new();
 			cover_item.set_inst_name($sformatf("%s_%s", get_full_name(), "cover_item"));
@@ -243,7 +257,6 @@
 
 		//function for handling reset
 		virtual function void handle_reset();
-			super.handle_reset();
 			cover_bus_state_at_reset.sample();
 			while(collected_items.size() > 0) begin
 				void'(collected_items.pop_front());
@@ -271,7 +284,7 @@
 
 		//Overwrite the write method in order to cover the transfer item
 		//@param transfer APB item received from the monitor
-		function void write_item_from_mon(amiq_apb_mon_item transfer);
+		virtual function void write_item_from_mon(amiq_apb_mon_item transfer);
 			if(transfer.end_time != 0) begin
 				cover_item.sample(transfer);
 

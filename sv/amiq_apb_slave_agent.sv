@@ -15,8 +15,6 @@
  *
  * NAME:        amiq_apb_slave_agent.sv
  * PROJECT:     amiq_apb
- * Engineers:   Andra Socianu (andra.socianu@amiq.com)
-                Cristian Florin Slav (cristian.slav@amiq.com)
  * Description: AMBA APB slave agent
  *******************************************************************************/
 
@@ -35,9 +33,9 @@
 		function new(input string name, input uvm_component parent);
 			super.new(name, parent);
 
-			cagt_agent_config #(.VIRTUAL_INTF_TYPE(amiq_apb_vif_t))::type_id::set_inst_override(amiq_apb_slave_agent_config::get_type(), "agent_config", this);
-			cagt_driver #(.VIRTUAL_INTF_TYPE(amiq_apb_vif_t), .REQ(amiq_apb_slave_drv_item))::type_id::set_inst_override(amiq_apb_slave_driver::get_type(), "driver", this);
-			cagt_sequencer #(.REQ(amiq_apb_slave_drv_item))::type_id::set_inst_override(amiq_apb_slave_sequencer::get_type(), "sequencer", this);
+			amiq_apb_agent_config::type_id::set_inst_override(amiq_apb_slave_agent_config::get_type(), "agent_config", this);
+			amiq_apb_driver#(.DRIVER_ITEM_REQ(amiq_apb_slave_drv_item))::type_id::set_inst_override(amiq_apb_slave_driver::get_type(), "driver", this);
+			amiq_apb_sequencer#(.DRIVER_ITEM(amiq_apb_slave_drv_item))::type_id::set_inst_override(amiq_apb_slave_sequencer::get_type(), "sequencer", this);
 		endfunction
 
 	endclass

@@ -15,8 +15,6 @@
  *
  * MODULE:      amiq_monitor.sv
  * PROJECT:     amiq_apb
- * Engineers:   Andra Socianu (andra.socianu@amiq.com)
-                Cristian Florin Slav (cristian.slav@amiq.com)
  * Description: AMBA APB agent monitor; in the environment there is a common
  *              monitor class for both agents
  *******************************************************************************/
@@ -26,10 +24,16 @@
 	`define AMIQ_MONITOR_SV
 
 	//AMBA APB agent monitor
-	class amiq_apb_monitor extends cagt_monitor#(.VIRTUAL_INTF_TYPE(amiq_apb_vif_t), .MONITOR_ITEM(amiq_apb_mon_item));
+	class amiq_apb_monitor extends uvm_monitor;
 
-		//casted agent configuration
-		amiq_apb_agent_config casted_agent_config;
+		//agent configuration
+		amiq_apb_agent_config agent_config;
+
+		//process for collect_transactions() task
+		protected process process_collect_transactions;
+
+		//port for sending the collected item
+		uvm_analysis_port#(amiq_apb_mon_item) output_port;
 
 		`uvm_component_utils(amiq_apb_monitor)
 
@@ -38,14 +42,22 @@
 		//@param parent - parent of the component instance
 		function new(string name = "amiq_apb_monitor", uvm_component parent);
 			super.new(name, parent);
+			output_port = new("output_port", this);
+		endfunction
+
+		//function for getting the ID used in messaging
+		//@return message ID
+		virtual function string get_id();
+			return "MON";
 		endfunction
 
 		//UVM start of simulation phase
 		//@param phase - current phase
 		virtual function void start_of_simulation_phase(input uvm_phase phase);
 			super.start_of_simulation_phase(phase);
-			assert ($cast(casted_agent_config, agent_config) == 1) else
-				`uvm_fatal(get_id(), "Could not cast agent configuration to amiq_apb_agent_config");
+			
+			assert (agent_config != null) else
+				`uvm_fatal(get_id(), "The pointer to the agent configuration is null - please make sure you set agent_config before \"Start of Simulation\" phase!");
 		endfunction
 
 		//task for collecting one transaction
@@ -62,8 +74,8 @@
 			//Create a new item_collected
 			item_collected = amiq_apb_mon_item::type_id::create("item_collected");
 			item_collected.start_time = $time;
-			item_collected.address = dut_vif.addr & casted_agent_config.get_address_mask();
-			item_collected.strobe = dut_vif.strb & casted_agent_config.get_strobe_mask();
+			item_collected.address = dut_vif.addr & agent_config.get_address_mask();
+			item_collected.strobe = dut_vif.strb & agent_config.get_strobe_mask();
 			item_collected.first_level_protection = amiq_apb_first_level_protection_t'(dut_vif.prot[0]);
 			item_collected.second_level_protection = amiq_apb_second_level_protection_t'(dut_vif.prot[1]);
 			item_collected.third_level_protection = amiq_apb_third_level_protection_t'(dut_vif.prot[2]);
@@ -71,7 +83,7 @@
 			item_collected.selected_slave = $clog2(dut_vif.sel);
 
 			if(item_collected.rw == WRITE) begin
-				item_collected.data = dut_vif.wdata & casted_agent_config.get_data_mask();
+				item_collected.data = dut_vif.wdata & agent_config.get_data_mask();
 			end
 
 			//Send the head of a transfer
@@ -86,10 +98,10 @@
 				@(posedge dut_vif.clk);
 			end
 
-			if(casted_agent_config.get_has_error_signal()) begin
+			if(agent_config.get_has_error_signal()) begin
 				item_collected.has_error = amiq_apb_error_response_t'(dut_vif.slverr);
 				if(item_collected.rw == READ) begin
-					item_collected.data = dut_vif.rdata & casted_agent_config.get_data_mask();
+					item_collected.data = dut_vif.rdata & agent_config.get_data_mask();
 				end
 			end
 
@@ -100,6 +112,48 @@
 			output_port.write(item_collected);
 
 			@(posedge dut_vif.clk);
+		endtask
+
+		//task for waiting the reset to be finished
+		virtual task wait_reset_end();
+			agent_config.wait_reset_end();
+		endtask
+
+		//task for collecting all transactions
+		virtual task collect_transactions();
+			fork
+				begin
+					process_collect_transactions = process::self();
+
+					`uvm_info(get_id(), "Starting collect_transactions()...", UVM_LOW);
+
+					forever begin
+						collect_transaction();
+					end
+				end
+			join
+		endtask
+
+		//function for handling reset
+		virtual function void handle_reset();
+			if(process_collect_transactions != null) begin
+				process_collect_transactions.kill();
+				`uvm_info(get_id(), "killing process for collect_transactions() task...", UVM_MEDIUM);
+			end
+		endfunction
+
+		//UVM run phase
+		//@param phase - current phase
+		virtual task run_phase(uvm_phase phase);
+			forever begin
+				fork
+					begin
+						wait_reset_end();
+						collect_transactions();
+						disable fork;
+					end
+				join
+			end
 		endtask
 
 	endclass

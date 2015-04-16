@@ -15,8 +15,6 @@
  *
  * NAME:        amiq_apb_base_item.sv
  * PROJECT:     amiq_apb
- * Engineers:   Andra Socianu (andra.socianu@amiq.com)
-                Cristian Florin Slav (cristian.slav@amiq.com)
  * Description: This file contains the declaration of the basic item from which
  *              the monitor and driver items will extend.
  *******************************************************************************/

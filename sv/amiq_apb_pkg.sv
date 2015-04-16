@@ -15,8 +15,6 @@
  *
  * MODULE:      amiq_apb_pkg.sv
  * PROJECT:     amiq_apb
- * Engineers:   Andra Socianu (andra.socianu@amiq.com)
-                Cristian Florin Slav (cristian.slav@amiq.com)
  * Description: AMBA APB package for uVCs
  *******************************************************************************/
 
@@ -24,14 +22,12 @@
 	//protection against multiple includes
 	`define AMIQ_APB_PKG_SV
 
-	`include "cagt_pkg.sv"
 	`include "amiq_apb_if.sv"
 
 	//AMBA APB environment package
 	package amiq_apb_pkg;
 
 		import uvm_pkg::*;
-		import cagt_pkg::*;
 
 		`include "uvm_macros.svh"
 
@@ -45,6 +41,7 @@
 		`include "amiq_apb_coverage.sv"
 		`include "amiq_apb_monitor.sv"
 		`include "amiq_apb_sequencer.sv"
+		`include "amiq_apb_driver.sv"
 		`include "amiq_apb_agent.sv"
 
 		`include "amiq_apb_master_drv_item.sv"
