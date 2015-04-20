@@ -13,34 +13,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * NAME:        amiq_apb_ex_multi_virtual_sequencer.sv
+ * NAME:        amiq_apb_ex_reg_pkg.sv
  * PROJECT:     amiq_apb
- * Description: This file contains the declaration of the virtual sequencer.
+ * Description: This file contains includes of all the files part of amiq_apb_ex_reg_pkg
+ *              package.
  *******************************************************************************/
 
-`ifndef AMIQ_APB_EX_MULTI_VIRTUAL_SEQUENCER_SV
+`ifndef AMIQ_APB_EX_REG_PKG_SV
 	//protection against multiple includes
-	`define AMIQ_APB_EX_MULTI_VIRTUAL_SEQUENCER_SV
+	`define AMIQ_APB_EX_REG_PKG_SV
 
-	//virtual sequencer
-	class amiq_apb_ex_multi_virtual_sequencer extends uvm_virtual_sequencer;
+	`include "amiq_apb_pkg.sv"
 
-		//pointer to the master sequencer
-		amiq_apb_master_sequencer master_sequencer;
+	package amiq_apb_ex_reg_pkg;
+		import uvm_pkg::*;
+		import amiq_apb_pkg::*;
 
-		//pointer to the slave sequencers
-		amiq_apb_slave_sequencer slave_sequencers[];
+		`include "amiq_apb_ex_reg_reg_file.sv"
+		`include "amiq_apb_ex_reg_reg_block.sv"
+		`include "amiq_apb_ex_reg_reg2apb_adapter.sv"
+		`include "amiq_apb_ex_reg_apb2reg_predictor.sv"
+		`include "amiq_apb_ex_reg_virtual_sequencer.sv"
+		`include "amiq_apb_ex_reg_slave_driver.sv"
+		`include "amiq_apb_ex_reg_env.sv"
+		`include "amiq_apb_ex_reg_virtual_seq_lib.sv"
 
-		`uvm_component_utils(amiq_apb_ex_multi_virtual_sequencer)
-
-		//constructor
-		//@param name - name of the component instance
-		//@param parent - parent of the component instance
-		function new(input string name, input uvm_component parent);
-			super.new(name, parent);
-		endfunction
-
-	endclass
+	endpackage
 
 `endif
 

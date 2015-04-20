@@ -13,34 +13,49 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * NAME:        amiq_apb_ex_multi_virtual_sequencer.sv
+ * NAME:        amiq_apb_ex_reg_top.sv
  * PROJECT:     amiq_apb
- * Description: This file contains the declaration of the virtual sequencer.
+ * Description: This file contains the top module with a dummy instance of the
+ *              APB interface.
  *******************************************************************************/
 
-`ifndef AMIQ_APB_EX_MULTI_VIRTUAL_SEQUENCER_SV
+`timescale 1ns/1ps
+
+`ifndef AMIQ_APB_EX_REG_TOP_SV
 	//protection against multiple includes
-	`define AMIQ_APB_EX_MULTI_VIRTUAL_SEQUENCER_SV
+	`define AMIQ_APB_EX_REG_TOP_SV
 
-	//virtual sequencer
-	class amiq_apb_ex_multi_virtual_sequencer extends uvm_virtual_sequencer;
+	//maximum sel width
+	`define AMIQ_APB_MAX_SEL_WIDTH 1
 
-		//pointer to the master sequencer
-		amiq_apb_master_sequencer master_sequencer;
+	`include "amiq_apb_ex_reg_test_pkg.sv"
 
-		//pointer to the slave sequencers
-		amiq_apb_slave_sequencer slave_sequencers[];
+	import uvm_pkg::*;
+	import amiq_apb_ex_reg_test_pkg::*;
 
-		`uvm_component_utils(amiq_apb_ex_multi_virtual_sequencer)
+	module amiq_apb_ex_reg_top;
 
-		//constructor
-		//@param name - name of the component instance
-		//@param parent - parent of the component instance
-		function new(input string name, input uvm_component parent);
-			super.new(name, parent);
-		endfunction
+		reg clock;
 
-	endclass
+		initial begin
+			clock = 0;
+			forever #5 clock = ~clock;
+		end
+
+		amiq_apb_if dut_vif (.clk(clock));
+
+		initial begin
+			dut_vif.reset_n <= 0;
+			#2000 dut_vif.reset_n <= 1;
+		end
+
+		initial begin
+			uvm_config_db #(virtual amiq_apb_if)::set(null, "uvm_test_top", "dut_vi", dut_vif);
+
+			run_test();
+		end
+
+	endmodule
 
 `endif
 

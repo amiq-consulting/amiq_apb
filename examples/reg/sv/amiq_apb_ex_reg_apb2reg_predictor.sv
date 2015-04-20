@@ -13,31 +13,40 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * NAME:        amiq_apb_ex_multi_virtual_sequencer.sv
- * PROJECT:     amiq_apb
- * Description: This file contains the declaration of the virtual sequencer.
+ * NAME:        amiq_apb_ex_reg_apb2reg_predictor.sv
+ * PROJECT:     amiq_ser
+ * Description: This file contains the declaration of the register predictor
  *******************************************************************************/
 
-`ifndef AMIQ_APB_EX_MULTI_VIRTUAL_SEQUENCER_SV
+`ifndef AMIQ_APB_EX_REG_APB2REG_PREDICTOR_SV
 	//protection against multiple includes
-	`define AMIQ_APB_EX_MULTI_VIRTUAL_SEQUENCER_SV
+	`define AMIQ_APB_EX_REG_APB2REG_PREDICTOR_SV
 
-	//virtual sequencer
-	class amiq_apb_ex_multi_virtual_sequencer extends uvm_virtual_sequencer;
+	//register adapter
+	class amiq_apb_ex_reg_apb2reg_predictor extends uvm_reg_predictor#(amiq_apb_mon_item);
 
-		//pointer to the master sequencer
-		amiq_apb_master_sequencer master_sequencer;
+		`uvm_component_utils(amiq_apb_ex_reg_apb2reg_predictor)
 
-		//pointer to the slave sequencers
-		amiq_apb_slave_sequencer slave_sequencers[];
-
-		`uvm_component_utils(amiq_apb_ex_multi_virtual_sequencer)
+		//function for getting the ID used in messaging
+		//@return message ID
+		virtual function string get_id();
+			return "PREDICTOR";
+		endfunction
 
 		//constructor
 		//@param name - name of the component instance
-		//@param parent - parent of the component instance
-		function new(input string name, input uvm_component parent);
+		function new(string name = "amiq_apb_ex_reg_apb2reg_predictor", uvm_component parent);
 			super.new(name, parent);
+		endfunction
+
+		//input port implementation 
+		//@param tr - incoming monitor item
+		virtual function void write(amiq_apb_mon_item tr);
+			if(tr.end_time != 0) begin
+				if(tr.has_error == NO_ERROR) begin
+					super.write(tr);
+				end
+			end
 		endfunction
 
 	endclass

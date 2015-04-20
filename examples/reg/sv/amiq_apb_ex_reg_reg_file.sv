@@ -13,34 +13,35 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * NAME:        amiq_apb_ex_multi_virtual_sequencer.sv
- * PROJECT:     amiq_apb
- * Description: This file contains the declaration of the virtual sequencer.
+ * NAME:        amiq_apb_ex_reg_reg_file.sv
+ * PROJECT:     amiq_ser
+ * Description: This file contains the definitions of the registers
  *******************************************************************************/
 
-`ifndef AMIQ_APB_EX_MULTI_VIRTUAL_SEQUENCER_SV
+`ifndef AMIQ_APB_EX_REG_REG_FILE_SV
 	//protection against multiple includes
-	`define AMIQ_APB_EX_MULTI_VIRTUAL_SEQUENCER_SV
+	`define AMIQ_APB_EX_REG_REG_FILE_SV
 
-	//virtual sequencer
-	class amiq_apb_ex_multi_virtual_sequencer extends uvm_virtual_sequencer;
+//data register
+class amiq_apb_ex_reg_reg_data extends uvm_reg;
 
-		//pointer to the master sequencer
-		amiq_apb_master_sequencer master_sequencer;
+	rand uvm_reg_field data;
 
-		//pointer to the slave sequencers
-		amiq_apb_slave_sequencer slave_sequencers[];
+	`uvm_object_utils(amiq_apb_ex_reg_reg_data)
 
-		`uvm_component_utils(amiq_apb_ex_multi_virtual_sequencer)
+	//constructor
+	//@param name - name of the component instance
+	function new(string name = "amiq_apb_ex_reg_reg_data");
+		super.new(name, 32, 1);
+	endfunction
 
-		//constructor
-		//@param name - name of the component instance
-		//@param parent - parent of the component instance
-		function new(input string name, input uvm_component parent);
-			super.new(name, parent);
-		endfunction
+	//build function
+	virtual function void build();
+		data = uvm_reg_field::type_id::create("data");
+		data.configure(this, 32, 0, "RW", 0, 0, 1, 1, 1);
+	endfunction
 
-	endclass
+endclass
 
 `endif
 

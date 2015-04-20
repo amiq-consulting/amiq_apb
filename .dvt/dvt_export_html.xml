@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <spechtml version="5">
-    <location>docs</location>
+    <location>docs/html</location>
     <title>amiq_apb
 API Specification</title>
-    <overview-file>/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/README.txt</overview-file>
+    <overview-file>/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/README</overview-file>
     <enhance-comments>true</enhance-comments>
     <doc-formatting-type>auto</doc-formatting-type>
     <user-defined-html/>

@@ -13,31 +13,45 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * NAME:        amiq_apb_ex_multi_virtual_sequencer.sv
+ * NAME:        amiq_apb_ex_reg_test_basic.sv
  * PROJECT:     amiq_apb
- * Description: This file contains the declaration of the virtual sequencer.
+ * Description: This file contains the declaration of the basic test.
  *******************************************************************************/
 
-`ifndef AMIQ_APB_EX_MULTI_VIRTUAL_SEQUENCER_SV
+`ifndef AMIQ_APB_EX_REG_TEST_BASIC_SV
 	//protection against multiple includes
-	`define AMIQ_APB_EX_MULTI_VIRTUAL_SEQUENCER_SV
+	`define AMIQ_APB_EX_REG_TEST_BASIC_SV
 
-	//virtual sequencer
-	class amiq_apb_ex_multi_virtual_sequencer extends uvm_virtual_sequencer;
+	class amiq_apb_ex_reg_test_basic extends uvm_test;
 
-		//pointer to the master sequencer
-		amiq_apb_master_sequencer master_sequencer;
+		amiq_apb_ex_reg_env env;
 
-		//pointer to the slave sequencers
-		amiq_apb_slave_sequencer slave_sequencers[];
-
-		`uvm_component_utils(amiq_apb_ex_multi_virtual_sequencer)
+		`uvm_component_utils(amiq_apb_ex_reg_test_basic)
 
 		//constructor
 		//@param name - name of the component instance
 		//@param parent - parent of the component instance
 		function new(input string name, input uvm_component parent);
 			super.new(name, parent);
+		endfunction
+
+		//UVM connect phase
+		//@param phase - current phase
+		virtual function void build_phase(input uvm_phase phase);
+			super.build_phase(phase);
+
+			env = amiq_apb_ex_reg_env::type_id::create("env", this);
+
+			begin
+				amiq_apb_env_config env_config = amiq_apb_env_config::type_id::create("amiq_apb_env_config", this);
+				env_config.number_of_slaves = 1;
+
+				if(!uvm_config_db#(virtual amiq_apb_if)::get(this, "", "dut_vi", env_config.dut_vi)) begin
+					`uvm_fatal(get_name(), "Could not get from database the virtual interface")
+				end
+
+				uvm_config_db#(amiq_apb_env_config)::set(this, "env*", "env_config", env_config);
+			end
 		endfunction
 
 	endclass

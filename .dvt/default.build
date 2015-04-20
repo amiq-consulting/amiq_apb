@@ -4,3 +4,6 @@
 +incdir+examples/multi/sv
 +incdir+examples/multi/tests
 examples/multi/sv/amiq_apb_ex_multi_top.sv
++incdir+examples/reg/sv
+examples/reg/sv/amiq_apb_ex_reg_top.sv
++incdir+examples/reg/tests

@@ -40,6 +40,15 @@
 	//AMBA APB master simple sequence
 	class amiq_apb_master_simple_seq extends amiq_apb_master_base_seq;
 
+		//The address of the transfer
+		rand amiq_apb_addr_t master_address;
+
+		//Transfer direction
+		rand amiq_apb_direction_t master_rw;
+
+		//The read or write data
+		rand amiq_apb_data_t master_data;
+
 		`uvm_object_utils(amiq_apb_master_simple_seq)
 
 		//constructor
@@ -56,6 +65,9 @@
 
 			if(!(master_seq_item.randomize() with {
 							master_seq_item.selected_slave < p_sequencer.agent_config.get_number_of_slaves();
+							address == master_address;
+							rw == master_rw;
+							data == master_data;
 						})) begin
 				`uvm_fatal("AMIQ_APB_NOSEQITEM_MSEQ_ERR", "The sequence item could not be generated");
 			end
