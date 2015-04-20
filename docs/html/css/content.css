@@ -1,0 +1,168 @@
+
+/* Footer CSS */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 80px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+}
+
+/* Scroll to top CSS */
+#scrollUp {
+	bottom: 20px;
+	right: 20px;
+}
+
+/* Hierarchy lists */
+ul.class-hierarchy, ul.module-hierarchy {
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+ul.class-hierarchy > li:not(:first-child)::before, ul.module-hierarchy li::before {content: '\21b3';}
+ul.module-hierarchy > li.l1::before {content: none;}
+ul.class-hierarchy > li:nth-of-type(3), ul.module-hierarchy > li.l3 {padding-left:1em;}
+ul.class-hierarchy > li:nth-of-type(4), ul.module-hierarchy > li.l4 {padding-left:2em;}
+ul.class-hierarchy > li:nth-of-type(5), ul.module-hierarchy > li.l5 {padding-left:3em;}
+ul.class-hierarchy > li:nth-of-type(6), ul.module-hierarchy > li.l6 {padding-left:4em;}
+ul.class-hierarchy > li:nth-of-type(7), ul.module-hierarchy > li.l7 {padding-left:5em;}
+ul.class-hierarchy > li:nth-of-type(8), ul.module-hierarchy > li.l8 {padding-left:6em;}
+ul.class-hierarchy > li:nth-of-type(9), ul.module-hierarchy > li.l9 {padding-left:7em;}
+ul.class-hierarchy > li:nth-of-type(10), ul.module-hierarchy > li.l10 {padding-left:8em;}
+ul.class-hierarchy > li:nth-of-type(11), ul.module-hierarchy > li.l11 {padding-left:9em;}
+ul.class-hierarchy > li:nth-of-type(12), ul.module-hierarchy > li.l12 {padding-left:10em;}
+ul.class-hierarchy > li:nth-of-type(13), ul.module-hierarchy > li.l13 {padding-left:11em;}
+ul.class-hierarchy > li:nth-of-type(14), ul.module-hierarchy > li.l14 {padding-left:12em;}
+ul.class-hierarchy > li:nth-of-type(15), ul.module-hierarchy > li.l15 {padding-left:13em;}
+ul.class-hierarchy > li:nth-of-type(16), ul.module-hierarchy > li.l16 {padding-left:14em;}
+ul.class-hierarchy > li:nth-of-type(17), ul.module-hierarchy > li.l17 {padding-left:15em;}
+ul.class-hierarchy > li:nth-of-type(18), ul.module-hierarchy > li.l18 {padding-left:16em;}
+ul.class-hierarchy > li:nth-of-type(19), ul.module-hierarchy > li.l19 {padding-left:17em;}
+ul.class-hierarchy > li:nth-of-type(20), ul.module-hierarchy > li.l20 {padding-left:18em;}
+ul.class-hierarchy > li:nth-of-type(21), ul.module-hierarchy > li.l21 {padding-left:19em;}
+ul.class-hierarchy > li:nth-of-type(22), ul.module-hierarchy > li.l22 {padding-left:20em;}
+ul.class-hierarchy > li:nth-of-type(23), ul.module-hierarchy > li.l23 {padding-left:21em;}
+ul.class-hierarchy > li:nth-of-type(24), ul.module-hierarchy > li.l24 {padding-left:22em;}
+ul.class-hierarchy > li:nth-of-type(25), ul.module-hierarchy > li.l25 {padding-left:23em;}
+ul.class-hierarchy > li:nth-of-type(26), ul.module-hierarchy > li.l26 {padding-left:24em;}
+ul.class-hierarchy > li:nth-of-type(27), ul.module-hierarchy > li.l27 {padding-left:25em;}
+ul.class-hierarchy > li:nth-of-type(28), ul.module-hierarchy > li.l28 {padding-left:26em;}
+ul.class-hierarchy > li:nth-of-type(29), ul.module-hierarchy > li.l29 {padding-left:27em;}
+ul.class-hierarchy > li:nth-of-type(30), ul.module-hierarchy > li.l30 {padding-left:28em;}
+ul.class-hierarchy > li:nth-of-type(31), ul.module-hierarchy > li.l31 {padding-left:29em;}
+ul.class-hierarchy > li:nth-of-type(32), ul.module-hierarchy > li.l32 {padding-left:30em;}
+ul.class-hierarchy > li:nth-of-type(33), ul.module-hierarchy > li.l33 {padding-left:31em;}
+ul.class-hierarchy > li:nth-of-type(34), ul.module-hierarchy > li.l34 {padding-left:32em;}
+ul.class-hierarchy > li:nth-of-type(35), ul.module-hierarchy > li.l35 {padding-left:33em;}
+ul.class-hierarchy > li:nth-of-type(36), ul.module-hierarchy > li.l36 {padding-left:34em;}
+ul.class-hierarchy > li:nth-of-type(37), ul.module-hierarchy > li.l37 {padding-left:35em;}
+ul.class-hierarchy > li:nth-of-type(38), ul.module-hierarchy > li.l38 {padding-left:36em;}
+ul.class-hierarchy > li:nth-of-type(39), ul.module-hierarchy > li.l39 {padding-left:37em;}
+ul.class-hierarchy > li:nth-of-type(40), ul.module-hierarchy > li.l40 {padding-left:38em;}
+ul.class-hierarchy > li:nth-of-type(41), ul.module-hierarchy > li.l41 {padding-left:39em;}
+ul.class-hierarchy > li:nth-of-type(42), ul.module-hierarchy > li.l42 {padding-left:40em;}
+ul.class-hierarchy > li:nth-of-type(43), ul.module-hierarchy > li.l43 {padding-left:41em;}
+ul.class-hierarchy > li:nth-of-type(44), ul.module-hierarchy > li.l44 {padding-left:42em;}
+ul.class-hierarchy > li:nth-of-type(45), ul.module-hierarchy > li.l45 {padding-left:43em;}
+ul.class-hierarchy > li:nth-of-type(46), ul.module-hierarchy > li.l46 {padding-left:44em;}
+ul.class-hierarchy > li:nth-of-type(47), ul.module-hierarchy > li.l47 {padding-left:45em;}
+ul.class-hierarchy > li:nth-of-type(48), ul.module-hierarchy > li.l48 {padding-left:46em;}
+ul.class-hierarchy > li:nth-of-type(49), ul.module-hierarchy > li.l49 {padding-left:47em;}
+ul.class-hierarchy > li:nth-of-type(50), ul.module-hierarchy > li.l50 {padding-left:48em;}
+ul.class-hierarchy > li:nth-of-type(51), ul.module-hierarchy > li.l51 {padding-left:49em;}
+ul.class-hierarchy > li:nth-of-type(52), ul.module-hierarchy > li.l52 {padding-left:50em;}
+ul.class-hierarchy > li:nth-of-type(53), ul.module-hierarchy > li.l53 {padding-left:51em;}
+ul.class-hierarchy > li:nth-of-type(54), ul.module-hierarchy > li.l54 {padding-left:52em;}
+ul.class-hierarchy > li:nth-of-type(55), ul.module-hierarchy > li.l55 {padding-left:53em;}
+ul.class-hierarchy > li:nth-of-type(56), ul.module-hierarchy > li.l56 {padding-left:54em;}
+ul.class-hierarchy > li:nth-of-type(57), ul.module-hierarchy > li.l57 {padding-left:55em;}
+ul.class-hierarchy > li:nth-of-type(58), ul.module-hierarchy > li.l58 {padding-left:56em;}
+ul.class-hierarchy > li:nth-of-type(59), ul.module-hierarchy > li.l59 {padding-left:57em;}
+ul.class-hierarchy > li:nth-of-type(60), ul.module-hierarchy > li.l60 {padding-left:58em;}
+ul.class-hierarchy > li:nth-of-type(61), ul.module-hierarchy > li.l61 {padding-left:59em;}
+ul.class-hierarchy > li:nth-of-type(62), ul.module-hierarchy > li.l62 {padding-left:60em;}
+ul.class-hierarchy > li:nth-of-type(63), ul.module-hierarchy > li.l63 {padding-left:61em;}
+ul.class-hierarchy > li:nth-of-type(64), ul.module-hierarchy > li.l64 {padding-left:62em;}
+ul.class-hierarchy > li:nth-of-type(65), ul.module-hierarchy > li.l65 {padding-left:63em;}
+ul.class-hierarchy > li:nth-of-type(66), ul.module-hierarchy > li.l66 {padding-left:64em;}
+ul.class-hierarchy > li:nth-of-type(67), ul.module-hierarchy > li.l67 {padding-left:65em;}
+ul.class-hierarchy > li:nth-of-type(68), ul.module-hierarchy > li.l68 {padding-left:66em;}
+ul.class-hierarchy > li:nth-of-type(69), ul.module-hierarchy > li.l69 {padding-left:67em;}
+ul.class-hierarchy > li:nth-of-type(70), ul.module-hierarchy > li.l70 {padding-left:68em;}
+ul.class-hierarchy > li:nth-of-type(71), ul.module-hierarchy > li.l71 {padding-left:69em;}
+ul.class-hierarchy > li:nth-of-type(72), ul.module-hierarchy > li.l72 {padding-left:70em;}
+ul.class-hierarchy > li:nth-of-type(73), ul.module-hierarchy > li.l73 {padding-left:71em;}
+ul.class-hierarchy > li:nth-of-type(74), ul.module-hierarchy > li.l74 {padding-left:72em;}
+ul.class-hierarchy > li:nth-of-type(75), ul.module-hierarchy > li.l75 {padding-left:73em;}
+ul.class-hierarchy > li:nth-of-type(76), ul.module-hierarchy > li.l76 {padding-left:74em;}
+ul.class-hierarchy > li:nth-of-type(77), ul.module-hierarchy > li.l77 {padding-left:75em;}
+ul.class-hierarchy > li:nth-of-type(78), ul.module-hierarchy > li.l78 {padding-left:76em;}
+ul.class-hierarchy > li:nth-of-type(79), ul.module-hierarchy > li.l79 {padding-left:77em;}
+ul.class-hierarchy > li:nth-of-type(80), ul.module-hierarchy > li.l80 {padding-left:78em;}
+ul.class-hierarchy > li:nth-of-type(81), ul.module-hierarchy > li.l81 {padding-left:79em;}
+ul.class-hierarchy > li:nth-of-type(82), ul.module-hierarchy > li.l82 {padding-left:80em;}
+ul.class-hierarchy > li:nth-of-type(83), ul.module-hierarchy > li.l83 {padding-left:81em;}
+ul.class-hierarchy > li:nth-of-type(84), ul.module-hierarchy > li.l84 {padding-left:82em;}
+ul.class-hierarchy > li:nth-of-type(85), ul.module-hierarchy > li.l85 {padding-left:83em;}
+ul.class-hierarchy > li:nth-of-type(86), ul.module-hierarchy > li.l86 {padding-left:84em;}
+ul.class-hierarchy > li:nth-of-type(87), ul.module-hierarchy > li.l87 {padding-left:85em;}
+ul.class-hierarchy > li:nth-of-type(88), ul.module-hierarchy > li.l88 {padding-left:86em;}
+ul.class-hierarchy > li:nth-of-type(89), ul.module-hierarchy > li.l89 {padding-left:87em;}
+ul.class-hierarchy > li:nth-of-type(90), ul.module-hierarchy > li.l90 {padding-left:88em;}
+ul.class-hierarchy > li:nth-of-type(91), ul.module-hierarchy > li.l91 {padding-left:89em;}
+ul.class-hierarchy > li:nth-of-type(92), ul.module-hierarchy > li.l92 {padding-left:90em;}
+ul.class-hierarchy > li:nth-of-type(93), ul.module-hierarchy > li.l93 {padding-left:91em;}
+ul.class-hierarchy > li:nth-of-type(94), ul.module-hierarchy > li.l94 {padding-left:92em;}
+ul.class-hierarchy > li:nth-of-type(95), ul.module-hierarchy > li.l95 {padding-left:93em;}
+ul.class-hierarchy > li:nth-of-type(96), ul.module-hierarchy > li.l96 {padding-left:94em;}
+ul.class-hierarchy > li:nth-of-type(97), ul.module-hierarchy > li.l97 {padding-left:95em;}
+ul.class-hierarchy > li:nth-of-type(98), ul.module-hierarchy > li.l98 {padding-left:96em;}
+ul.class-hierarchy > li:nth-of-type(99), ul.module-hierarchy > li.l99 {padding-left:97em;}
+
+/* Signature */
+span.signature, span.aspect {
+ 	padding: 2px 4px;
+ 	border-radius: 4px;
+}
+
+span.signature {
+	background-color: #F2E0C4;
+}
+
+span.aspect {
+	color: #fff;
+	background-color: #999;
+}
+
+/* Pre tags customizations */
+pre.comment {
+	background-color:inherit;
+ 	overflow: auto;
+ 	word-wrap: normal;
+	white-space: pre;
+}
+
+pre.comment > pre  {
+	background-color: #FCFCFC;
+	border-style: none;
+	border-left-style: solid;
+	border-left-width: 5px;
+}
+
+li > pre.comment {
+	border: none;
+}
+
+/* Fix for table bottom margin in collapsable panel */
+.panel > .panel-collapse > .table {
+  margin-bottom: 0;
+}
