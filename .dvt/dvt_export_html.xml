@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<spechtml version="5">
+<spechtml version="6">
     <location>docs/html</location>
     <title>amiq_apb
 API Specification</title>
-    <overview-file>/home/cristian.slav/work/amiq/projects/clients/amiq/amiq_apb/README</overview-file>
+    <overview-file>README</overview-file>
     <enhance-comments>true</enhance-comments>
     <doc-formatting-type>auto</doc-formatting-type>
     <user-defined-html/>
     <show-external-doc-refs-in-navbar>true</show-external-doc-refs-in-navbar>
     <use-new-html-style>true</use-new-html-style>
-    <created-by-user-watermark>true</created-by-user-watermark>
+    <created-by-user-watermark>false</created-by-user-watermark>
     <clean-location>true</clean-location>
+    <open-in-browser>true</open-in-browser>
     <just-project-files>false</just-project-files>
     <public-only>false</public-only>
     <filter-string/>
