@@ -85,6 +85,9 @@
 
 		//Switch which indicates that the agent uses error signal ( 1 - on; 0 - off)
 		bit has_error_signal = 1;
+    
+		//Switch which indicates that the agent uses prot signals ( 1 - on; 0 - off)
+		bit has_prot_signals = 1;
 
 		//-------------------------------------------------------------------------------------------
 		//--- SWITCHES TO ENABLE CHECKS
@@ -146,7 +149,7 @@
 
 		//Property definition for prot signal valid values
 		property amiq_apb_prot_valid_values_p;
-			@(posedge clk) disable iff(!reset_n || !en_x_z_checks)
+			@(posedge clk) disable iff(!reset_n || !en_x_z_checks || !has_prot_signals)
 				$isunknown(prot) == 0;
 		endproperty
 		//Check that prot signal is not x nor z

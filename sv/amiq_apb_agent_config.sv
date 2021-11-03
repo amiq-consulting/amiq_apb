@@ -55,6 +55,9 @@
 
 		//Indicates that the agent has or has not an error signal
 		protected bit has_error_signal = 1;
+    
+		//Indicates that the agent has or has not the prot signals
+		protected bit has_prot_signals = 1;
 
 		//Switch to enable amiq_apb_ready_low_maximum_time check
 		protected bit en_ready_low_max_time = 1;
@@ -233,6 +236,21 @@
 			this.has_error_signal = has_error_signal;
 			if(dut_vif != null) begin
 				dut_vif.has_error_signal = has_error_signal;
+			end
+    endfunction
+    
+		//function for getting the has_prot_signals
+		//@return has_prot_signals
+		function bit get_has_prot_signals();
+			return has_prot_signals;
+		endfunction
+
+		//function for setting a new has_prot_signals
+		//@param has_prot_signals - new value of has_prot_signals
+		function void set_has_prot_signals(bit has_prot_signals);
+			this.has_prot_signals = has_prot_signals;
+			if(dut_vif != null) begin
+				dut_vif.has_prot_signals = has_prot_signals;
 			end
 		endfunction
 

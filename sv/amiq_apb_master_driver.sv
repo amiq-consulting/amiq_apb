@@ -74,10 +74,13 @@
 			dut_vif.addr <= transaction.address & master_agent_config.get_address_mask();
 			dut_vif.write <= transaction.rw;
 			dut_vif.strb <= transaction.strobe & master_agent_config.get_strobe_mask();
-			dut_vif.prot[0] <= bit'(transaction.first_level_protection);
-			dut_vif.prot[1] <= bit'(transaction.second_level_protection);
-			dut_vif.prot[2] <= bit'(transaction.third_level_protection);
-
+      
+      if (master_agent_config.get_has_prot_signals()) begin
+  			dut_vif.prot[0] <= bit'(transaction.first_level_protection);
+  			dut_vif.prot[1] <= bit'(transaction.second_level_protection);
+  			dut_vif.prot[2] <= bit'(transaction.third_level_protection);
+      end
+      
 			if(transaction.rw == WRITE) begin
 				dut_vif.wdata <= transaction.data & master_agent_config.get_data_mask();
 			end
