@@ -19,61 +19,70 @@
  *******************************************************************************/
 
 `ifndef AMIQ_APB_ITEM_SV
-	//protection against multiple includes
-	`define AMIQ_APB_ITEM_SV
+  //protection against multiple includes
+  `define AMIQ_APB_ITEM_SV
 
-	//AMBA APB transfer item definition
-	class amiq_apb_item extends amiq_apb_base_item;
+//AMBA APB transfer item definition
+class amiq_apb_item extends amiq_apb_base_item;
 
-		`uvm_object_utils(amiq_apb_item)
+  //The address of the transfer
+  rand amiq_apb_addr_t address;
 
-		//The address of the transfer
-		rand amiq_apb_addr_t address;
+  //Transfer direction
+  rand amiq_apb_direction_t rw;
 
-		//Transfer direction
-		rand amiq_apb_direction_t rw;
+  //The read or write data
+  rand amiq_apb_data_t data;
 
-		//The read or write data
-		rand amiq_apb_data_t data;
+  //The first level transfer protection
+  rand amiq_apb_first_level_protection_t first_level_protection;
 
-		//The first level transfer protection
-		rand amiq_apb_first_level_protection_t first_level_protection;
+  //The second level transfer protection
+  rand amiq_apb_second_level_protection_t second_level_protection;
 
-		//The second level transfer protection
-		rand amiq_apb_second_level_protection_t second_level_protection;
+  //The third level transfer protection
+  rand amiq_apb_third_level_protection_t third_level_protection;
 
-		//The third level transfer protection
-		rand amiq_apb_third_level_protection_t third_level_protection;
+  //The access strobe
+  rand amiq_apb_strobe_t strobe;
 
-		//The access strobe
-		rand amiq_apb_strobe_t strobe;
+  //selected slave
+  rand int unsigned selected_slave;
 
-		//selected slave
-		rand int unsigned selected_slave;
+  `uvm_object_utils_begin(amiq_apb_item)
+    `uvm_field_int(address, UVM_DEFAULT)
+    `uvm_field_enum(amiq_apb_direction_t, rw, UVM_DEFAULT)
+    `uvm_field_int(data, UVM_DEFAULT)
+    `uvm_field_enum(amiq_apb_first_level_protection_t, first_level_protection, UVM_DEFAULT)
+    `uvm_field_enum(amiq_apb_second_level_protection_t, second_level_protection, UVM_DEFAULT)
+    `uvm_field_enum(amiq_apb_third_level_protection_t, third_level_protection, UVM_DEFAULT)
+    `uvm_field_int(strobe, UVM_DEFAULT)
+    `uvm_field_int(selected_slave, UVM_DEFAULT)
+  `uvm_object_utils_end
 
-		constraint strobe_default {
-			solve rw before strobe;
-			//For read transfers the bus master must drive all bits of PSTRB LOW.
-			rw == READ -> strobe == 0;
-		}
+  constraint strobe_default {
+    solve rw before strobe;
+    //For read transfers the bus master must drive all bits of PSTRB LOW.
+    rw == READ -> strobe == 0;
+  }
 
-		constraint selected_slave_default {
-			selected_slave < `AMIQ_APB_MAX_SEL_WIDTH;
-		}
+  constraint selected_slave_default {
+    selected_slave < `AMIQ_APB_MAX_SEL_WIDTH;
+  }
 
-		//constructor
-		//@param name - name of the object instance
-		function new(string name = "amiq_apb_item");
-			super.new(name);
-		endfunction
+  //constructor
+  //@param name - name of the object instance
+  function new(string name = "amiq_apb_item");
+    super.new(name);
+  endfunction
 
-		//converts the information containing in the instance of this class to an easy-to-read string
-		//@return easy-to-read string with the information contained in the instance of this class
-		virtual function string convert2string();
-			return $sformatf("dir: %s, addr: %X, data: %X, prot[2:0]: %s %s %s, strobe: %X, selected_slave: %0d",
-				rw.name(), address, data, third_level_protection.name(), second_level_protection.name(), first_level_protection.name(), strobe, selected_slave);
-		endfunction
+  //converts the information containing in the instance of this class to an easy-to-read string
+  //@return easy-to-read string with the information contained in the instance of this class
+  virtual function string convert2string();
+    return $sformatf("dir: %s, addr: %X, data: %X, prot[2:0]: %s %s %s, strobe: %X, selected_slave: %0d",
+      rw.name(), address, data, third_level_protection.name(), second_level_protection.name(), first_level_protection.name(), strobe, selected_slave);
+  endfunction
 
-	endclass
+endclass
 
 `endif
