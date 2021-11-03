@@ -53,7 +53,7 @@ run_with_ius_test() {
 		EXTRA_OPTIONS=" ${EXTRA_OPTIONS} -exit "
 	fi
 
-	irun -f ${PROJECT_DIR}/examples/common/scripts/options_ius.f -svseed ${seed} +UVM_TESTNAME=${test} ${EXTRA_OPTIONS}
+	xrun -f ${PROJECT_DIR}/examples/common/scripts/options_ius.f -svseed ${seed} +UVM_TESTNAME=${test} ${EXTRA_OPTIONS}
 }
 
 run_with_vcs_test() {
