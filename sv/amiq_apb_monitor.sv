@@ -33,7 +33,10 @@
 		protected process process_collect_transactions;
 
 		//port for sending the collected item
-		uvm_analysis_port#(amiq_apb_mon_item) output_port;
+		uvm_analysis_port#(amiq_apb_mon_item) head_transfer_port;
+    
+		//port for sending the collected item
+		uvm_analysis_port#(amiq_apb_mon_item) full_transfer_port;
 
 		`uvm_component_utils(amiq_apb_monitor)
 
@@ -42,7 +45,8 @@
 		//@param parent - parent of the component instance
 		function new(string name = "amiq_apb_monitor", uvm_component parent);
 			super.new(name, parent);
-			output_port = new("output_port", this);
+			head_transfer_port = new("head_transfer_port", this);
+			full_transfer_port = new("full_transfer_port", this);
 		endfunction
 
 		//function for getting the ID used in messaging
@@ -76,9 +80,13 @@
 			item_collected.start_time = $time;
 			item_collected.address = dut_vif.addr & agent_config.get_address_mask();
 			item_collected.strobe = dut_vif.strb & agent_config.get_strobe_mask();
-			item_collected.first_level_protection = amiq_apb_first_level_protection_t'(dut_vif.prot[0]);
-			item_collected.second_level_protection = amiq_apb_second_level_protection_t'(dut_vif.prot[1]);
-			item_collected.third_level_protection = amiq_apb_third_level_protection_t'(dut_vif.prot[2]);
+      
+      if (agent_config.get_has_prot_signals()) begin
+  			item_collected.first_level_protection = amiq_apb_first_level_protection_t'(dut_vif.prot[0]);
+  			item_collected.second_level_protection = amiq_apb_second_level_protection_t'(dut_vif.prot[1]);
+  			item_collected.third_level_protection = amiq_apb_third_level_protection_t'(dut_vif.prot[2]);
+      end
+      
 			item_collected.rw = amiq_apb_direction_t'(dut_vif.write);
 			item_collected.selected_slave = $clog2(dut_vif.sel);
 
@@ -87,7 +95,7 @@
 			end
 
 			//Send the head of a transfer
-			output_port.write(item_collected);
+			head_transfer_port.write(item_collected);
 
 			//Wait a clock cycle (in this clock cycle enable must be asserted)
 			@(posedge dut_vif.clk);
@@ -109,7 +117,7 @@
 
 			`uvm_info(get_id(), $sformatf("Collected item: %s", item_collected.convert2string()), UVM_LOW)
 
-			output_port.write(item_collected);
+			full_transfer_port.write(item_collected);
 
 			@(posedge dut_vif.clk);
 		endtask

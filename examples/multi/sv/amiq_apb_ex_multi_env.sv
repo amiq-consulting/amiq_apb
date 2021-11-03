@@ -78,7 +78,7 @@
 					`uvm_fatal("ENV", "Could not cast to amiq_apb_slave_sequencer");
 			end
 
-			env.master_agent.monitor.output_port.connect(scoreboard.input_port_master_mon);
+			env.master_agent.monitor.full_transfer_port.connect(scoreboard.input_port_master_mon);
 
 			env.master_agent.driver.output_port.connect(scoreboard.input_port_master_drv);
 			env.slave_agents[0].driver.output_port.connect(scoreboard.input_port_slave_drv_0);

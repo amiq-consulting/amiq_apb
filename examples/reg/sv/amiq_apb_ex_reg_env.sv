@@ -94,7 +94,7 @@
 			reg_block.default_map.set_sequencer(env.master_agent.sequencer, reg2apb_adapter);
 			apb2reg_predictor.map = reg_block.default_map;
 			apb2reg_predictor.adapter = reg2apb_adapter;
-			env.master_agent.monitor.output_port.connect(apb2reg_predictor.bus_in);
+			env.master_agent.monitor.full_transfer_port.connect(apb2reg_predictor.bus_in);
 			
 			begin
 				amiq_apb_ex_reg_slave_driver slave_driver;

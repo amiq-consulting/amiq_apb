@@ -91,7 +91,8 @@
 
 			if(coverage != null) begin
 				coverage.agent_config = agent_config;
-				monitor.output_port.connect(coverage.item_from_mon_port);
+				monitor.head_transfer_port.connect(coverage.head_item_from_mon_port);
+				monitor.full_transfer_port.connect(coverage.full_item_from_mon_port);
 			end
 
 			if((driver != null) && (sequencer != null)) begin
