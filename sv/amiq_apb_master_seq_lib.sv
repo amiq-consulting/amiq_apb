@@ -48,7 +48,13 @@
 
 		//The read or write data
 		rand amiq_apb_data_t master_data;
+    
+    //Delays between transfers - the transfer delay is driven to the end of transfer
+    rand int unsigned trans_delay;
 
+    //The access strobe
+    rand amiq_apb_strobe_t strobe;
+    
 		`uvm_object_utils(amiq_apb_master_simple_seq)
 
 		//constructor
@@ -65,9 +71,11 @@
 
 			if(!(master_seq_item.randomize() with {
 							master_seq_item.selected_slave < p_sequencer.agent_config.get_number_of_slaves();
-							address == master_address;
-							rw == master_rw;
-							data == master_data;
+							master_seq_item.address == master_address;
+							master_seq_item.rw == master_rw;
+							master_seq_item.data == master_data;
+              master_seq_item.strobe == strobe;
+              master_seq_item.trans_delay == trans_delay;
 						})) begin
 				`uvm_fatal("AMIQ_APB_NOSEQITEM_MSEQ_ERR", "The sequence item could not be generated");
 			end
